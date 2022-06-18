@@ -1,0 +1,245 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+        <!-- Start Service -->
+        <section class="section-padding bg-light-white service-page">
+            <div class="container">
+                <div class="row">
+                    <aside class="col-lg-4">
+                        <div class="sidebar_wrap mb-md-80">
+                            <div class="sidebar">
+                                <div class="sidebar_widgets mb-xl-30">
+                                    <div class="widget_title bg-light-blue">
+                                        <h5 class="no-margin text-custom-white fw-600">Search</h5>
+                                    </div>
+                                    <form>
+                                        <div class="form-group mb-0">
+                                            <div class="search p-relative">
+                                                <input type="text" name="#" class="form-control form-control-custom" placeholder="Title or keywords">
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                               <div class="sidebar_widgets mb-xl-30">
+                                    <div class="widget_title bg-light-blue">
+                                        <h5 class="no-margin text-custom-white fw-600">Genmed Services</h5>
+                                    </div>
+                                    <ul class="custom sidebar-services">
+                                        <li class="active">
+                                            <a href="service-detail.html" class="text-custom-black fs-14">{{ object.service_name }} <span><i class="fas fa-chevron-right"></i></span></a>
+                                        </li>
+                                        {% for single in service %}
+                                        <li>
+                                            <a href="{{ single.get_absolute_url }}" class="text-custom-black fs-14">{{ single.service_name }}<span><i class="fas fa-chevron-right"></i></span></a>
+                                        </li>
+                                        {% endfor %}
+
+                                    </ul>
+                                </div>
+                                <div class="sidebar_widgets mb-xl-30">
+                                    <div class="widget_title bg-light-blue">
+                                        <h5 class="no-margin text-custom-white fw-600">Opening Hours</h5>
+                                    </div>
+                                    <table class="table text-custom-black">
+                                        <tbody>
+                                            <tr>
+                                                <td>Mon – Wed</td>
+                                                <td> - </td>
+                                                <td class="text-right">9:00 AM - 7:00 PM</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Thursday</td>
+                                                <td> - </td>
+                                                <td class="text-right">9:00 AM - 6:30 PM</td>
+                                            </tr>
+                                             <tr>
+                                                <td>Friday</td>
+                                                <td> - </td>
+                                                <td class="text-right">9:00 AM - 6:00 PM</td>
+                                            </tr>
+                                            <tr class="last-tr">
+                                                <td>Sun - Sun</td>
+                                                <td>-</td>
+                                                <td class="text-right">CLOSED</td>
+                                             </tr>
+                                          </tbody>
+                                    </table>
+                                </div>
+                                <div class="sidebar_widgets">
+                                    <div class="widget_title bg-light-blue">
+                                        <h5 class="no-margin text-custom-white fw-600">Recent News</h5>
+                                    </div>
+                                    <ul class="custom popular_post">
+                                        <li>
+                                            <div class="post">
+                                                <div class="post-wrapper">
+                                                    <div class="popular_post_img animate-img">
+                                                        <a href="blog-single.html">
+                                                            <img src="https://via.placeholder.com/90" class="img-fluid image-fit" alt="#">
+                                                        </a>
+                                                    </div>
+                                                    <div class="popular_post_title">
+                                                        <div class="post-date">
+                                                            <p class="text-light-white no-margin">12 Dec 2019</p>
+                                                        </div>
+                                                        <h6><a href="blog-single.html" class="text-custom-black fs-16 fw-600">8 Tips to Help You Finding New Home</a></h6>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="post">
+                                                <div class="post-wrapper">
+                                                    <div class="popular_post_img animate-img">
+                                                        <a href="blog-single.html">
+                                                            <img src="https://via.placeholder.com/90" class="img-fluid image-fit" alt="#">
+                                                        </a>
+                                                    </div>
+                                                    <div class="popular_post_title">
+                                                        <div class="post-date">
+                                                            <p class="text-light-white no-margin">12 Dec 2019</p>
+                                                        </div>
+                                                        <h6><a href="blog-single.html" class="text-custom-black fs-16 fw-600">8 Tips to Help You Finding New Home</a></h6>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="post">
+                                                <div class="post-wrapper">
+                                                    <div class="popular_post_img animate-img">
+                                                        <a href="blog-single.html">
+                                                            <img src="https://via.placeholder.com/90" class="img-fluid image-fit" alt="#">
+                                                        </a>
+                                                    </div>
+                                                    <div class="popular_post_title">
+                                                        <div class="post-date">
+                                                            <p class="text-light-white no-margin">12 Dec 2019</p>
+                                                        </div>
+                                                        <h6><a href="blog-single.html" class="text-custom-black fs-16 fw-600">8 Tips to Help You Finding New Home</a></h6>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </aside>
+
+                   <div class="col-lg-8">
+                        <div class="col-12">
+                            <div class="service-detail-sec bg-custom-white bx-wrapper">
+                                <div class="services-detail-slider mb-xl-30">
+                                    <div class="service-image">
+                                        <img src="{{ object.service_image.url }}" class="image-fit" alt="img">
+                                        <div class="overlay overlay-bg-black"></div>
+                                        <div class="service-text-wrapper transform-center">
+                                            <h3 class="text-custom-white">{{ object.service_name }}</h3>
+                                            <a href="#" class="btn-first btn-submit">Make Appointment</a>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="service-meta mb-xl-30">
+                                    <h2 class="text-custom-black fw-600">{{ object.service_name}}</h2>
+                                    <p class="text-light-white">{{ object.service_description }}</p>
+                                    <p class="text-light-white">Phasellus velit risus, euismod a lacus et, mattis condimentum augue. Vivamus fermentum ex quis imperdiet sodales. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque fermentum massa vel enim feugiat gravida.</p>
+                                    <h4 class="text-custom-black fw-600">What we do ?.</h4>
+                                    <p class="text-light-white">Phasellus velit risus, euismod a lacus et, mattis condimentum augue. Vivamus fermentum ex quis imperdiet sodales. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque fermentum massa vel enim feugiat gravida.</p>
+                                    <h4 class="text-custom-black fw-600">What the procedure ?.</h4>
+                                    <p class="text-light-white no-margin">Phasellus velit risus, euismod a lacus et, mattis condimentum augue. Vivamus fermentum ex quis imperdiet sodales. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque fermentum massa vel enim feugiat gravida.</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="service-form padding-20 bg-custom-white bx-wrapper">
+                                        <h4 class="text-custom-black fw-600">Make an Appointment</h4>
+                                        <p class="text-light-white">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                        <div class="form-layout-1">
+                                            <div class="row">
+                                                <div class="col-sm-6">
+                                                    <div class="form-group">
+                                                        <div class="icon">
+                                                            <i class="flaticon-stethoscope"></i>
+                                                        </div>
+                                                        <label>Select Doctor</label>
+                                                        <select class="form-control custom-select">
+                                                            <option>Dr. Anna Wright</option>
+                                                            <option>Dr. Kwak</option>
+                                                            <option>Dr. Anderson</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <div class="form-group">
+                                                        <div class="icon">
+                                                            <i class="flaticon-hospital"></i>
+                                                        </div>
+                                                        <label>Select Service</label>
+                                                        <select class="form-control custom-select">
+                                                            <option>Cardiology</option>
+                                                            <option>Urologic </option>
+                                                            <option>Neurology</option>
+                                                            <option>Medicine</option>
+                                                            <option>Surgery</option>
+                                                            <option>Urology</option>
+                                                            <option>Radiology</option>
+                                                            <option>Neurosurgery</option>
+                                                            <option>Bariatric</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <div class="form-group">
+                                                        <div class="icon">
+                                                            <i class="flaticon-user"></i>
+                                                        </div>
+                                                        <label>Name</label>
+                                                        <input type="text" name="#" class="form-control" placeholder="Your Name">
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <div class="form-group">
+                                                        <div class="icon">
+                                                            <i class="flaticon-telephone"></i>
+                                                        </div>
+                                                        <label>Phone</label>
+                                                        <input type="text" name="#" class="form-control" placeholder="Your Name">
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <div class="form-group">
+                                                        <div class="icon">
+                                                            <i class="flaticon-calendar"></i>
+                                                        </div>
+                                                        <label>Select Date</label>
+                                                        <input type="text" name="#" class="form-control datepickr" placeholder="mm/dd/yy" readonly="">
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-6 mb-xl-20">
+                                                    <div class="form-group">
+                                                        <div class="icon">
+                                                            <i class="flaticon-wall-clock"></i>
+                                                        </div>
+                                                        <label>Select Time</label>
+                                                        <input type="text" name="#" class="form-control timepickr" placeholder="12:00 PM" readonly="">
+                                                    </div>
+                                                </div>
+                                                <div class="col-12">
+                                                    <button type="submit" class="btn-first btn-submit text-light-blue fw-600">Make Appointment</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                    </div>
+                </div>
+
+
+        </section>
+        <!-- End Service -->
+
+{% endblock %}

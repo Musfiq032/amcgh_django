@@ -1,0 +1,227 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+    <section class="section-padding bg-light-white our-articles">
+            <div class="container">
+                <div class="row">
+                    <aside class="col-lg-4">
+                        <div class="sidebar_wrap mb-md-80">
+                            <div class="sidebar">
+                                <div class="sidebar_widgets mb-xl-30">
+                                    <div class="widget_title bg-light-blue">
+                                        <h5 class="no-margin text-custom-white fw-600">Search</h5>
+                                    </div>
+                                    <form>
+                                        <div class="form-group mb-0">
+                                            <div class="search p-relative">
+                                                <input type="text" name="title_or_author" class="form-control form-control-custom" placeholder="Title or keywords">
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="sidebar_widgets mb-xl-30">
+                                    <div class="widget_title bg-light-blue">
+                                        <h5 class="no-margin text-custom-white fw-600">Categories</h5>
+                                    </div>
+                                <form>
+                                          <div class="form-row align-items-center">
+                                            <div class="col-12 my-1">
+                                              <label class="mr-sm-2 sr-only" for="inlineFormCustomSelect">Categories</label>
+                                              <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+                                                <option selected>Choose...</option>
+                                                   {% for cat in cat_list %}
+                                                       <option value="{{ cat }}">{{ cat }}</option>
+                                                   {% endfor %}
+                                              </select>
+                                            </div>
+
+                                            <div class="col-12 my-1">
+                                              <button type="submit" class="btn btn-outline-secondary">Submit</button>
+                                            </div>
+                                          </div>
+                                        </form>
+
+                                </div>
+                                <div class="sidebar_widgets mb-xl-30">
+                                    <div class="widget_title bg-light-blue">
+                                        <h5 class="no-margin text-custom-white fw-600">Popular Post</h5>
+                                    </div>
+                                    <ul class="custom popular_post">
+                                        <li>
+                                            <div class="post">
+                                                <div class="post-wrapper">
+                                                    <div class="popular_post_img animate-img">
+                                                        <a href="blog-single.html">
+                                                            <img src="https://via.placeholder.com/90" class="img-fluid image-fit" alt="#">
+                                                        </a>
+                                                    </div>
+                                                    <div class="popular_post_title">
+                                                        <div class="post-date">
+                                                            <p class="text-light-white no-margin">12 Dec 2019</p>
+                                                        </div>
+                                                        <h6><a href="blog-single.html" class="text-custom-black fs-16 fw-600">8 Tips to Help You Finding New Home</a></h6>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="post">
+                                                <div class="post-wrapper">
+                                                    <div class="popular_post_img animate-img">
+                                                        <a href="blog-single.html">
+                                                            <img src="https://via.placeholder.com/90" class="img-fluid image-fit" alt="#">
+                                                        </a>
+                                                    </div>
+                                                    <div class="popular_post_title">
+                                                        <div class="post-date">
+                                                            <p class="text-light-white no-margin">12 Dec 2019</p>
+                                                        </div>
+                                                        <h6><a href="blog-single.html" class="text-custom-black fs-16 fw-600">8 Tips to Help You Finding New Home</a></h6>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="post">
+                                                <div class="post-wrapper">
+                                                    <div class="popular_post_img animate-img">
+                                                        <a href="blog-single.html">
+                                                            <img src="https://via.placeholder.com/90" class="img-fluid image-fit" alt="#">
+                                                        </a>
+                                                    </div>
+                                                    <div class="popular_post_title">
+                                                        <div class="post-date">
+                                                            <p class="text-light-white no-margin">12 Dec 2019</p>
+                                                        </div>
+                                                        <h6><a href="blog-single.html" class="text-custom-black fs-16 fw-600">8 Tips to Help You Finding New Home</a></h6>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="sidebar_widgets mb-xl-30">
+                                    <div class="widget_title bg-light-blue">
+                                        <h5 class="no-margin text-custom-white fw-600">Recent Post</h5>
+                                    </div>
+                                    <ul class="custom popular_post">
+                                        <li>
+                                            <div class="post">
+                                                <div class="post-wrapper">
+                                                    <div class="popular_post_img animate-img">
+                                                        <a href="blog-single.html">
+                                                            <img src="https://via.placeholder.com/90" class="img-fluid image-fit" alt="#">
+                                                        </a>
+                                                    </div>
+                                                    <div class="popular_post_title">
+                                                        <div class="post-date">
+                                                            <p class="text-light-white no-margin">12 Dec 2019</p>
+                                                        </div>
+                                                        <h6><a href="blog-single.html" class="text-custom-black fs-16 fw-600">8 Tips to Help You Finding New Home</a></h6>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="post">
+                                                <div class="post-wrapper">
+                                                    <div class="popular_post_img animate-img">
+                                                        <a href="blog-single.html">
+                                                            <img src="https://via.placeholder.com/90" class="img-fluid image-fit" alt="#">
+                                                        </a>
+                                                    </div>
+                                                    <div class="popular_post_title">
+                                                        <div class="post-date">
+                                                            <p class="text-light-white no-margin">12 Dec 2019</p>
+                                                        </div>
+                                                        <h6><a href="blog-single.html" class="text-custom-black fs-16 fw-600">8 Tips to Help You Finding New Home</a></h6>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="post">
+                                                <div class="post-wrapper">
+                                                    <div class="popular_post_img animate-img">
+                                                        <a href="blog-single.html">
+                                                            <img src="https://via.placeholder.com/90" class="img-fluid image-fit" alt="#">
+                                                        </a>
+                                                    </div>
+                                                    <div class="popular_post_title">
+                                                        <div class="post-date">
+                                                            <p class="text-light-white no-margin">12 Dec 2019</p>
+                                                        </div>
+                                                        <h6><a href="blog-single.html" class="text-custom-black fs-16 fw-600">8 Tips to Help You Finding New Home</a></h6>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="sidebar_widgets">
+                                    <div class="widget_title bg-light-blue">
+                                        <h5 class="no-margin text-custom-white fw-600">Tags Cloud</h5>
+                                    </div>
+                                    <div class="tags">
+                                        <a href="#">Car Team</a>
+                                        <a href="#">Gracious</a>
+                                        <a href="#">Supportor</a>
+                                        <a href="#">Solar Car</a>
+                                        <a href="#">Americas</a>
+                                        <a href="#">Challenge</a>
+                                        <a href="#">Bridgestone</a>
+                                        <a href="#">Popular</a>
+                                        <a href="#">University</a>
+                                        <a href="#">Since 1990</a>
+                                        <a href="#">Anniversary</a>
+                                        <a href="#">Solar</a>
+                                        <a href="#">Registration</a>
+                                        <a href="#">World</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </aside>
+            <div class="col-lg-8">
+                        <div class="row">
+                    {% for instance in blog_list %}
+                    <article class="col-lg-6 col-md-6 post mb-xl-30">
+                        <div class="post-wrapper">
+                            <div class="blog-img animate-img">
+                                <a href="blog-single.html">
+                                    <img src="{{ instance.news_image.url }}" class="full-width" alt="blog">
+                                </a>
+                            </div>
+                            <div class="blog-meta padding-20">
+                                <div class="post-meta">
+                                    <div class="author-img">
+                                        <img src="https://via.placeholder.com/50" class="rounded-circle" alt="image">
+                                    </div>
+                                    <div class="author-meta">
+                                        <h6 class="no-margin"><a href="#" class="text-custom-white">{{ instance.author}}</a></h6>
+                                        <p class="no-margin text-custom-white"><a href="#" class="text-custom-white">Admin</a> | {{ instance.publish_date }}</p>
+                                    </div>
+                                </div>
+                                <div class="post-content">
+                                    <h2><a href="#" class="text-custom-black fw-600">{{ instance.title }}</a></h2>
+                                    <p class="text-light-white">{{ instance.description|safe }}</p>
+                                </div>
+                                <div class="blog-links">
+                                    <div class="post-metas">
+                                        <span class="mr-2 fs-14"><a href="#" class="text-custom-black"><i class="fas fa-eye text-light-blue"></i> {{ instance.views }}</a></span>
+                                        <span class="fs-14"><a href="#" class="text-custom-black"><i class="far fa-comment text-light-blue"></i> 33</a></span>
+                                    </div>
+                                    <a href="{{ instance.get_absolute_url }}" class="text-light-blue fs-14">Read More</a>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                   {% endfor %}
+                </div>
+            </div>
+                </div>
+            </div>
+        </section>
+        <!-- End Blog -->
+{% endblock %}

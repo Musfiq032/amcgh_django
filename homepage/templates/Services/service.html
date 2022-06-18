@@ -1,0 +1,218 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+        <!-- Start Service -->
+
+
+            <section class="main-services section-padding">
+            <div class="container">
+                <div class="section-header">
+                    <div class="section-heading">
+                        <h3 class="text-custom-black fw-700">Our Services</h3>
+                        <img src="{% static '/images/title-icon.png' %}" class="mb-xl-20" alt="img">
+                        <div class="section-description">
+                            <p class="text-light-white">
+                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text.
+                            </p>
+
+                            <form method="get">
+                                <input type="search" class="form-control form-control-custom" name="q" placeholder="Search..." value="">
+                            </form>
+                        </div>
+
+
+                    </div>
+
+                </div>
+                <div class="row">
+                    {% for service in service_list %}
+
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="main-services-box p-relative mb-xl-30">
+                            <div class="main-service-wrapper padding-20">
+                                <div class="icon-box">
+                                    <i class="flaticon-dental-care"></i>
+                                </div>
+                                <h5 class="fw-700"><a href="{{ service.get_absolute_url }}" class="text-custom-black">{{ service.service_name }}</a></h5>
+                                <p class="text-light-white no-margin">Lorem ipsum dolor sit amet consecte adipiscing elit sed do eiusincidunt.</p>
+                            </div>
+                        </div>
+                    </div>
+    {% endfor %}
+                </div>
+            </div>
+        </section>
+
+
+        <!-- End Service -->
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="col-lg-8">
+                        <div class="col-12">
+                            <div class="service-detail-sec bg-custom-white bx-wrapper">
+                                               <div id="multi-item-example" class="carousel slide carousel-multi-item" data-ride="carousel">
+                                <!--Controls-->
+  <div class="controls-top-right">
+    <a class="left carousel-control" href="#carousel1" data-slide="prev"> <span class="glyphicon glyphicon-chevron-left"></span> </a>
+    <a class="right carousel-control" href="#carousel1" data-slide="next"> <span class="glyphicon glyphicon-chevron-right"></span> </a>
+  </div>
+  <!--/.Controls-->
+                                <ol class="carousel-indicators">
+    <li data-target="#multi-item-example" data-slide-to="0" class="active"></li>
+    <li data-target="#multi-item-example" data-slide-to="1"></li>
+
+  </ol>
+                                <div class="carousel-inner" role="listbox">
+
+                                    <div class="services-detail-slider mb-xl-30">
+                                    {% for service_detail in service_list %}
+
+                                    <div class="carousel-item {% if forloop.counter0 == 0 %} active {% endif %}">
+
+                                    <div class="service-image">
+
+                                        <img src="{{ service_detail.service_image.url }}" class="image-fit" alt="img">
+
+                                        <div class="overlay overlay-bg-black"></div>
+                                        <div class="service-text-wrapper transform-center">
+                                            <h3 class="text-custom-white">{{ service_detail.service_name}}</h3>
+
+                                        </div>
+                                    </div>
+
+                                    </div>
+                                      {% endfor %}
+                                </div>
+
+                                </div>
+
+                       </div>
+
+  <div class="service-meta mb-xl-30">
+                                    <h2 class="text-custom-black fw-600">{{ object.service_name}}</h2>
+                                    <p class="text-light-white">{{ object.service_description }}</p>
+
+                                </div>
+                             </div>
+                            <div class="row">
+                                {% for instance in service_list %}
+                                <div class="col-md-4 col-sm-6">
+                                    <div class="main-services-box p-relative mb-xl-30">
+                                        <div class="main-service-wrapper padding-20">
+                                            <div class="icon-box">
+                                                <i class="flaticon-eye"></i>
+                                            </div>
+                                            <h5 class="fw-700"><a href="{{ instance.get_absolute_url }}" class="text-custom-black">{{ instance.service_name }}</a></h5>
+                                            <p class="text-light-white no-margin">{{ instance.service_short_description }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                {% endfor %}
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="service-form padding-20 bg-custom-white bx-wrapper">
+                                        <h4 class="text-custom-black fw-600">Make an Appointment</h4>
+                                        <p class="text-light-white">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                        <div class="form-layout-1">
+                                          <div class="row">
+                                              <div class="col-sm-6">
+                                                  <div class="form-group">
+                                                      <div class="icon">
+                                                          <i class="flaticon-stethoscope"></i>
+                                                      </div>
+                                                      <label>Select Doctor</label>
+                                                      <select class="form-control custom-select">
+                                                          <option>Dr. Anna Wright</option>
+                                                          <option>Dr. Kwak</option>
+                                                          <option>Dr. Anderson</option>
+                                                      </select>
+                                                  </div>
+                                              </div>
+                                              <div class="col-sm-6">
+                                                  <div class="form-group">
+                                                      <div class="icon">
+                                                          <i class="flaticon-hospital"></i>
+                                                      </div>
+                                                      <label>Select Service</label>
+                                                      <select class="form-control custom-select">
+                                                          <option>Cardiology</option>
+                                                          <option>Urologic </option>
+                                                          <option>Neurology</option>
+                                                          <option>Medicine</option>
+                                                          <option>Surgery</option>
+                                                          <option>Urology</option>
+                                                          <option>Radiology</option>
+                                                          <option>Neurosurgery</option>
+                                                          <option>Bariatric</option>
+                                                      </select>
+                                                  </div>
+                                              </div>
+                                              <div class="col-sm-6">
+                                                  <div class="form-group">
+                                                      <div class="icon">
+                                                          <i class="flaticon-user"></i>
+                                                      </div>
+                                                      <label>Name</label>
+                                                      <input type="text" name="#" class="form-control" placeholder="Your Name">
+                                                  </div>
+                                              </div>
+                                              <div class="col-sm-6">
+                                                  <div class="form-group">
+                                                      <div class="icon">
+                                                          <i class="flaticon-telephone"></i>
+                                                      </div>
+                                                      <label>Phone</label>
+                                                      <input type="text" name="#" class="form-control" placeholder="Your Name">
+                                                  </div>
+                                              </div>
+                                              <div class="col-sm-6">
+                                                  <div class="form-group">
+                                                      <div class="icon">
+                                                          <i class="flaticon-calendar"></i>
+                                                      </div>
+                                                      <label>Select Date</label>
+                                                      <input type="text" name="#" class="form-control datepickr" placeholder="mm/dd/yy" readonly="">
+                                                  </div>
+                                              </div>
+                                              <div class="col-sm-6 mb-xl-20">
+                                                  <div class="form-group">
+                                                      <div class="icon">
+                                                          <i class="flaticon-wall-clock"></i>
+                                                      </div>
+                                                      <label>Select Time</label>
+                                                      <input type="text" name="#" class="form-control timepickr" placeholder="12:00 PM" readonly="">
+                                                  </div>
+                                              </div>
+                                              <div class="col-12">
+                                                  <button type="submit" class="btn-first btn-submit text-light-blue fw-600">Make Appointment</button>
+                                              </div>
+                                          </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>

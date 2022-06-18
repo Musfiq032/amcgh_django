@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+
+<section class="section doctor-single">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-4 col-md-6">
+				<div class="doctor-img-block">
+					<img src="{{ doctor_details.profile_pic }}" alt="" class="img-fluid w-100">
+
+					<div class="info-block mt-4">
+						<h4 class="mb-0" style="align-items: center">{{ doctor_details.admin.first_name}}{{ doctor_details.admin.last_name }}</h4>
+                        <p style="align-self: center">{{ doctor_details.degree }} <br> {{ doctor_details.designation }}, {{ doctor_details.department_id.department_name }}</p>
+
+					</div>
+				</div>
+			</div>
+
+			<div class="col-lg-8 col-md-6">
+				<div class="doctor-details mt-4 mt-lg-0">
+					<h3 class="text-md">Introducing to myself</h3>
+					<div class="divider my-4"></div>
+                        <span>
+                            {{ doctor_details.research_publication|safe }}
+                        </span>
+
+
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<style>
+    .section {
+  padding: 100px 0;
+}
+
+.section-title h2 {
+  color: #223a66;
+}
+
+.section-title h2 {
+  color: #223a66;
+}
+
+</style>
+
+{% endblock %}
+<!-- footer Start -->

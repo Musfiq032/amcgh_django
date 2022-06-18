@@ -1,0 +1,1409 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="keywords" content="#">
+    <meta name="description" content="#">
+    <title>Homepage | Ahsania Mission Cancer & General Hospital</title>
+    <!-- Fav and touch icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{% static 'assets/images/favicon.ico' %}">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="{% static 'assets/images/favicon.ico' %}">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="{% static 'assets/images/favicon.ico' %}">
+    <link rel="apple-touch-icon-precomposed" href="#">
+    <link rel="shortcut icon" href="{% static 'assets/images/favicon.ico' %}">
+    <!-- Bootstrap -->
+    <link href="{% static 'assets/css/bootstrap.min.css' %}" rel="stylesheet">
+    <!-- Fontawesome -->
+    <link href="{% static 'assets/css/font-awesome.css' %}" rel="stylesheet">
+    <!-- Flaticons -->
+    <link href="{% static 'assets/css/font/flaticon.css' %}" rel="stylesheet">
+    <!-- Slick Slider -->
+    <link href="{% static 'assets/css/slick.css' %}" rel="stylesheet">
+    <!-- Range Slider -->
+    <link href="{% static 'assets/css/ion.rangeSlider.min.css' %}" rel="stylesheet">
+    <!-- Datepicker -->
+    <link href="{% static 'assets/css/datepicker.css' %}" rel="stylesheet">
+    <!-- magnific popup -->
+    <link href="{% static 'assets/css/magnific-popup.css' %}" rel="stylesheet">
+    <!-- Nice Select -->
+    <link href="{% static 'assets/css/nice-select.css' %}" rel="stylesheet">
+    <!-- Custom Stylesheet -->
+    <link href="{% static 'assets/css/style.css' %}" rel="stylesheet">
+    <!-- Custom Responsive -->
+    <link href="{% static 'assets/css/responsive.css' %}" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <!-- place -->
+</head>
+<body class="animated-banner">
+    <!-- Start Main Body -->
+    <div class="main-body">
+        <!-- Start Header -->
+        <header class="header-style-1">
+            <!-- Start Topbar -->
+            <div class="topbar-style-1">
+                <div class="container" style="height: 25px;">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-12 col-md-12 col-12 " style="float: right;">
+                            <div class="right-side">
+                                <ul class="custom">
+                                    {% if user.is_authenticated %}
+                                    <li><a class="text-custom-white" href="#">{{ user.username }}</a></li>
+                                        <li><a class="text-custom-white" href="#">Log Out</a></li>
+                                        <li><a href="#" class="text-custom-white fs-14"><i class="fab fa-facebook-f"></i></a></li>
+                                    <li><a href="#" class="text-custom-white fs-14"><i class="fab fa-twitter"></i></a></li>
+                                    <li><a href="#" class="text-custom-white fs-14"><i class="fab fa-linkedin"></i></a></li>
+                                    <li><a href="#" class="text-custom-white fs-14"><i class="fab fa-youtube"></i></a></li>
+                                    <li class="search"><a href="javascript:void(0)" class="text-custom-white fs-14"><i class="fas fa-search"></i></a></li>
+                                    <li class="topbar-search">
+                                      <form method="get">
+                                        <input type="search" class="form-control form-control-custom" name="search" placeholder="Search..." value="">
+                                      </form>
+                                    </li>
+                                    {% else %}
+                                        <li><a class="text-custom-white" href="#">Login</a></li>
+                                        <li><a class="text-custom-white"> | </a></li>
+                                        <li><a class="text-custom-white" href="#">Create Your Account</a></li>
+                                         <li><a href="#" class="text-custom-white fs-14"><i class="fab fa-facebook-f"></i></a></li>
+                                    <li><a href="#" class="text-custom-white fs-14"><i class="fab fa-twitter"></i></a></li>
+                                    <li><a href="#" class="text-custom-white fs-14"><i class="fab fa-linkedin"></i></a></li>
+                                    <li><a href="#" class="text-custom-white fs-14"><i class="fab fa-youtube"></i></a></li>
+                                    <li class="search"><a href="javascript:void(0)" class="text-custom-white fs-14"><i class="fas fa-search"></i></a></li>
+                                    <li class="topbar-search">
+                                      <form method="get">
+                                        <input type="search" class="form-control form-control-custom" name="search" placeholder="Search..." value="">
+                                      </form>
+                                    </li>
+
+                                    {% endif %}
+
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End Topbar -->
+            <!-- Start Navigation -->
+            <div class="main-navigation-style-1">
+                <div class="container" style="margin-right: auto;">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="navigation">
+                                <div class="logo">
+
+                                    <a href="index.html">
+                                        <img src="{% static 'assets/images/amcghLogo-1.png' %}" class="img-fluid " alt="Logo">
+
+                                    </a>
+                                </div>
+                                <div class="main-menu">
+                                    <div class="mobile-logo">
+                                        <a href="index.html">
+                                            <img src="{% static 'assets/images/amcghLogo-1.png' %}" class="img-fluid image-fit" alt="Logo">
+                                        </a>
+                                    </div>
+                                    <nav>
+                                        <ul class="custom">
+
+                                            <li class="menu-item">
+                                                <a href="#" class="text-custom-white">About Us</a>
+                                            </li>
+                                            <li class="menu-item menu-item-has-children">
+                                                <a href="#" class="text-custom-white">News & Events</a>
+                                                <ul class="custom sub-menu">
+                                                    <li class="menu-item">
+                                                        <a href="#" class="text-light-grey">Blog</a>
+                                                    </li>
+                                                 <li class="menu-item">
+                                                        <a href="#" class="text-light-grey">Photo Gallery</a>
+                                                    </li>
+
+                                                </ul>
+                                            </li>
+                                           <li class="menu-item">
+                                                        <a href="#" class="text-custom-white">Our Doctors</a>
+                                                    </li>
+                                            <li class="menu-item">
+                                                        <a href="#" class="text-custom-white">Departments</a>
+                                                    </li>
+                                            <li class="menu-item">
+                                                        <a href="#" class="text-custom-white">Services</a>
+                                                    </li>
+
+
+                                            <li class="menu-item">
+                                                <a href="../../../Templates/contact.html" class="text-custom-white">Contact Us</a>
+                                            </li>
+                                        </ul>
+                                    </nav>
+
+                                </div>
+                                <div class="hamburger-menu">
+                                    <div class="menu-btn">
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End Navigation -->
+        </header>
+        <!-- End Header -->
+        <!-- Start Slider -->
+ <div class="slider parallax" id="banner-animation">
+            <div class="transform-center">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="banner-slider">
+                                <div class="slide-item">
+                                    <div class="banner-text">
+                                        <h1 class="text-custom-white fw-700">High Innovative  Professional Dentists </h1>
+                                        <p class="text-custom-white">Bind brought it harvest super unpack that secular accountability group special music. Theology seeing the fruit oceans outreach, treasure that very relational father</p>
+                                        <a href="#" class="btn-first btn-submit text-light-blue">
+                                            Read More
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="slide-item">
+                                    <div class="banner-text">
+                                        <h1 class="text-custom-white fw-700">We Flexible Managed Detal Services </h1>
+                                        <p class="text-custom-white">Bind brought it harvest super unpack that secular accountability group special music. Theology seeing the fruit oceans outreach, treasure that very relational father</p>
+                                        <a href="#" class="btn-first btn-submit text-light-blue">
+                                            Learn More
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Slider -->
+        <!-- Start Intro -->
+        <section class="genmed-intro">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-md-4 no-padding">
+                        <div class="intro-box bg-light-blue full-height">
+                            <div class="intro-wrapper text-center">
+                                <i class="flaticon-flag"></i>
+                                <h4 class="text-custom-white fw-700">Working Time</h4>
+                                <table class="table text-custom-white">
+                                    <tbody>
+                                        <tr>
+                                            <td>Mon – Wed</td>
+                                            <td> - </td>
+                                            <td class="text-right">9:00 AM - 7:00 PM</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Thursday</td>
+                                            <td> - </td>
+                                            <td class="text-right">9:00 AM - 6:30 PM</td>
+                                        </tr>
+                                         <tr>
+                                            <td>Friday</td>
+                                            <td> - </td>
+                                            <td class="text-right">9:00 AM - 6:00 PM</td>
+                                        </tr>
+                                        <tr class="last-tr">
+                                            <td>Sun - Sun</td>
+                                            <td>-</td>
+                                            <td class="text-right">CLOSED</td>
+                                         </tr>
+                                      </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 no-padding">
+                        <div class="intro-box bg-light-blue full-height">
+                            <div class="intro-wrapper text-center">
+                                <i class="flaticon-flag"></i>
+                                <h4 class="text-custom-white fw-700">Appointments</h4>
+                                <p class="text-custom-white">An magnis nulla dolor at sapien augue erat iaculis purus tempor magna ipsum and vitae a purus primis ipsum magna ipsum</p>
+                                <a href="#book-appointment" class="btn-first btn-submit-white fw-600 scrollbtn">Book Appointment</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 no-padding">
+                        <div class="intro-box bg-light-blue full-height">
+                            <div class="intro-wrapper text-center">
+                                <i class="flaticon-flag"></i>
+                                <h4 class="text-custom-white fw-700">Emergency Cases</h4>
+                                <p class="text-custom-white">An magnis nulla dolor at sapien augue erat iaculis purus tempor magna ipsum and vitae a purus primis ipsum magna ipsum</p>
+                                <a href="tel:" class="btn-first btn-submit-white fw-600"><i class="fas fa-phone-alt"></i> 1-800-123-4567</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- End Intro -->
+        <!-- Start About -->
+        <section class="section-padding-top about-sec">
+            <div class="container">
+                <div class="row justify-content-between">
+                    <div class="col-xl-6 col-lg-6">
+                        <div class="section-header">
+                            <div class="section-heading">
+                                <h3 class="text-custom-black fw-700">Welcome To Ahsania Mission Cancer & General Hospital</h3>
+
+                                <div class="section-description">
+                                    <p class="text-light-white">
+                                        Cancer is no longer considered a mortal disease provided it is detected and treated in time.Bangladesh has a number of hospitals which are providing world class treatment in curing various diseases but not Cancer.Cancer treatment, requiring a very long and expensive procedure, is still beyond the reach of the average people of our country, let alone the question of the poor masses. To the general mass Cancer is a killer of the patients as well as their families because of the exorbitant treatment cost which drains out a family fortune.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="about-wrapper mb-xl-80">
+
+                            <div class="signature mb-xl-40">
+                                <span class="fs-14 text-light-blue fw-600">Kazi Rafiqul Alam, President of AMCGH</span>
+                            </div>
+                            <a href="#" class="btn-first btn-submit text-light-blue">
+                                Read More
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-xl-6 col-lg-6 align-self-center">
+                        <div class="doctor-img">
+                            <img src="{% static 'assets/images/President.jpg' %}" class="img-fluid image-fit" alt="President Image">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="about-counter section-padding">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="counter-box mb-md-40">
+                            <div class="counter-icon">
+                                <i class="flaticon-medical"></i>
+                            </div>
+                            <div class="counter">
+                                <span class="count text-custom-white">800</span>
+                                <span class="fs-16 text-custom-white">Satisfied Patients</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="counter-box mb-md-40">
+                            <div class="counter-icon">
+                                <i class="flaticon-doctor"></i>
+                            </div>
+                            <div class="counter">
+                                <span class="count text-custom-white">350</span>
+                                <span class="fs-16 text-custom-white">Certified Doctor</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="counter-box mb-xs-40">
+                            <div class="counter-icon">
+                                <i class="flaticon-award"></i>
+                            </div>
+                            <div class="counter">
+                                <span class="count text-custom-white">250</span>
+                                <span class="fs-16 text-custom-white">Winning Awards</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="counter-box">
+                            <div class="counter-icon">
+                                <i class="flaticon-balloons"></i>
+                            </div>
+                            <div class="counter">
+                                <span class="count text-custom-white">25</span>
+                                <span class="fs-16 text-custom-white">Years Experience</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End About -->
+        <!-- Start Main Services -->
+        <section class="main-services section-padding">
+            <div class="container">
+                <div class="section-header">
+                    <div class="section-heading">
+                        <h3 class="text-custom-black fw-700">Our Services</h3>
+                        <img src="{% static '/images/title-icon.png' %}" class="mb-xl-20" alt="img">
+                        <div class="section-description">
+                            <p class="text-light-white">
+                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="section-btn">
+                        <a href="#" class="btn-first btn-submit text-light-blue">View More</a>
+                    </div>
+                </div>
+
+                           <div class="row">
+                    {% for service in service_list %}
+
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="main-services-box p-relative mb-xl-30">
+                            <div class="main-service-wrapper padding-20">
+                                <div class="icon-box">
+                                    <i class="flaticon-dental-care"></i>
+                                </div>
+                                <h5 class="fw-700"><a href="{{ service.get_absolute_url }}" class="text-custom-black">{{ service.service_name }}</a></h5>
+                                <p class="text-light-white no-margin">Lorem ipsum dolor sit amet consecte adipiscing elit sed do eiusincidunt.</p>
+                            </div>
+                        </div>
+                    </div>
+    {% endfor %}
+                </div>
+
+
+            </div>
+        </section>
+        <!-- End Main Services -->
+        <!-- Start Appointment/faqs -->
+        <section class="book-appointment parallax section-padding" id="book-appointment">
+            <div class="overlay overlay-bg-black"></div>
+            <div class="pattern"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="booking-form p-relative">
+                            <div class="book-form-wrapper">
+                                <div class="section-header">
+                                    <div class="section-heading mx-auto text-center">
+                                        <h3 class="text-custom-black fw-700">Book an Appointment</h3>
+                                        <img src="{% static '/images/title-icon.png' %}" class="mb-xl-20" alt="img">
+                                        <div class="section-description">
+                                            <p class="text-light-white">
+                                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <form class="form-layout-1">
+                                    <div class="row">
+                                        <div class="col-lg-4 col-md-6">
+                                            <div class="form-group">
+                                                <div class="icon">
+                                                    <i class="flaticon-user"></i>
+                                                </div>
+                                                <label>Your Name</label>
+                                                <input type="text" name="#" class="form-control" placeholder="Your Name">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4 col-md-6">
+                                            <div class="form-group">
+                                                <div class="icon">
+                                                    <i class="flaticon-stethoscope"></i>
+                                                </div>
+                                                <label>Select Your Doctor</label>
+                                                <select class="form-control custom-select">
+                                                    <option>Dr. Anna Wright</option>
+                                                    <option>Dr. Kwak</option>
+                                                    <option>Dr. Anderson</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4 col-md-6">
+                                            <div class="form-group">
+                                                <div class="icon">
+                                                    <i class="flaticon-information"></i>
+                                                </div>
+                                                <label>Select Your Services</label>
+                                                <select class="form-control custom-select">
+                                                    <option>Cardiology</option>
+                                                    <option>Urologic </option>
+                                                    <option>Neurology</option>
+                                                    <option>Medicine</option>
+                                                    <option>Surgery</option>
+                                                    <option>Urology</option>
+                                                    <option>Radiology</option>
+                                                    <option>Neurosurgery</option>
+                                                    <option>Bariatric</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4 col-md-6">
+                                            <div class="form-group">
+                                                <div class="icon">
+                                                    <i class="flaticon-telephone"></i>
+                                                </div>
+                                                <label>Your Phone</label>
+                                                <input type="text" name="#" class="form-control" placeholder="Enter your Phone">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4 col-md-6">
+                                            <div class="form-group">
+                                                <div class="icon">
+                                                    <i class="flaticon-calendar"></i>
+                                                </div>
+                                                <label>Select Date</label>
+                                                <input type="text" name="#" class="form-control datepickr" placeholder="mm/dd/yy" readonly>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4 col-md-6">
+                                            <div class="form-group">
+                                                <div class="icon">
+                                                    <i class="flaticon-wall-clock"></i>
+                                                </div>
+                                                <label>Add Time</label>
+                                                <input type="text" name="#" class="form-control timepickr" placeholder="12:00 PM" readonly>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 mb-xl-20">
+                                            <div class="form-group">
+                                                <div class="icon">
+                                                    <i class="flaticon-conversation"></i>
+                                                </div>
+                                                <label>Special Request</label>
+                                                <textarea class="form-control" rows="2" name="#" placeholder="Type Message"></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 text-center">
+                                            <button type="submit" class="btn-first btn-submit text-light-blue fw-600">Make Appointment</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- End Appointment/faqs -->
+        <!-- Start Features -->
+       <section class="section-padding features-sec">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-5 col-lg-6 align-self-center">
+                        <div class="section-header pb-0">
+                            <div class="section-heading">
+                                <h3 class="text-custom-black fw-700">Our Departments</h3>
+                                <img src="{% static '/images/title-icon.png' %}" class="mb-xl-20" alt="img">
+                                <div class="section-description">
+                                    <p class="text-light-white">
+                                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="text-light-white">
+                            On the other hand, we denounce with righteous indignation the foult anuals dislike men who are so beguiled and demoralized by the nuhaiicharms of pleasure of the moment, so blinded by desire, that they cannot foresee the pain and trouble that are bound toen sue; and equal blame belongs to those who fail in their duty.
+                        </p>
+
+                      <div class="section-btn">
+                        <a href="#" class="btn-first btn-submit text-light-blue">View More</a>
+                    </div>
+                    </div>
+                         <div class="col-xl-7 col-lg-6">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="features-wrapper first-box">
+                                    <div class="card-container rotate-1 mb-xl-30">
+                                        <div class="card">
+                                            <div class="side">
+                                                <img src="https://via.placeholder.com/303" class="image-fit" alt="Jimmy Eat World">
+                                                <div class="front-text">
+                                                    <h3 class="text-custom-white no-margin fw-600">Dental</h3>
+                                                </div>
+                                            </div>
+                                            <div class="side back">
+                                                <p class="fs-16 no-margin">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="features-wrapper">
+                                    <div class="card-container rotate-3 mb-xl-30">
+                                        <div class="card">
+                                            <div class="side">
+                                                <img src="https://via.placeholder.com/303" class="image-fit" alt="Jimmy Eat World">
+                                                <div class="front-text">
+                                                    <h3 class="text-custom-white no-margin fw-600">Diagnostic</h3>
+                                                </div>
+                                            </div>
+                                            <div class="side back">
+                                                <p class="fs-16 no-margin">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- End Features -->
+        <!-- Start why choose us -->
+        <section class="why-choose-us-style-2 section-padding bg-light-white">
+            <div class="container">
+                <div class="section-header">
+                    <div class="section-heading">
+                        <h3 class="text-custom-black fw-700">Why Choose Us</h3>
+                        <img src="{% static '/images/title-icon.png' %}" class="mb-xl-20" alt="img">
+                        <div class="section-description">
+                            <p class="text-light-white">
+                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="square-tabs">
+                            <ul class="nav nav-tabs custom">
+                                <li class="nav-item">
+                                    <a class="nav-link active" data-toggle="tab" href="#teeth-whitening">Teeth Whitening</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" data-toggle="tab" href="#cosmetic-dentistry">Cosmetic Dentistry</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" data-toggle="tab" href="#pediatric-dentistry">Pediatric Dentistry</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" data-toggle="tab" href="#preventive-dentistry">Preventive Dentistry</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" data-toggle="tab" href="#dental-crowns">Dental Crowns</a>
+                                </li>
+                            </ul>
+                            <div class="tab-content padding-20 bg-custom-white">
+                                <div class="tab-pane container active" id="teeth-whitening">
+                                    <div class="tab-inner">
+                                        <div class="row">
+                                            <div class="col-lg-6">
+                                                <div class="img-sec mb-md-40">
+                                                    <img src="https://via.placeholder.com/500x460" class="full-width" alt="img">
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6 align-self-center">
+                                                <div class="content-box">
+                                                    <h4 class="text-custom-black">What does teeth whitening do?</h4>
+                                                    <p class="text-light-white">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text.</p>
+                                                    <div class="list">
+                                                        <ul class="custom">
+                                                            <li class="fs-14 text-light-blue">
+                                                                <i class="fas fa-check"></i>
+                                                                <span class="text-light-white">Oil Pulling</span>
+                                                            </li>
+                                                            <li class="fs-14 text-light-blue">
+                                                                <i class="fas fa-check"></i>
+                                                                <span class="text-light-white">Baking Soda</span>
+                                                            </li>
+                                                            <li class="fs-14 text-light-blue">
+                                                                <i class="fas fa-check"></i>
+                                                                <span class="text-light-white">Hydrogen Peroxide</span>
+                                                            </li>
+                                                            <li class="fs-14 text-light-blue">
+                                                                <i class="fas fa-check"></i>
+                                                                <span class="text-light-white">Apple Cider Vinegar</span>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                    <div class="btns">
+                                                        <button type="button" class="btn-first btn-submit text-light-blue">
+                                                        Book Appointment
+                                                        </button>
+                                                        <a href="#" class="morebtn fs-14 fw-500 text-light-blue">
+                                                            More Details
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane container fade" id="cosmetic-dentistry">
+                                    <div class="tab-inner">
+                                        <div class="row">
+                                            <div class="col-lg-6">
+                                                <div class="img-sec mb-md-40">
+                                                    <img src="https://via.placeholder.com/500x460" class="full-width" alt="img">
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6 align-self-center">
+                                                <div class="content-box">
+                                                    <h4 class="text-custom-black">What does cosmetic dentistry do?</h4>
+                                                    <p class="text-light-white">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text.</p>
+                                                    <div class="list">
+                                                        <ul class="custom">
+                                                            <li class="fs-14 text-light-blue">
+                                                                <i class="fas fa-check"></i>
+                                                                <span class="text-light-white">Lumineers</span>
+                                                            </li>
+                                                            <li class="fs-14 text-light-blue">
+                                                                <i class="fas fa-check"></i>
+                                                                <span class="text-light-white">Vivaneeres</span>
+                                                            </li>
+                                                            <li class="fs-14 text-light-blue">
+                                                                <i class="fas fa-check"></i>
+                                                                <span class="text-light-white">Porcelain</span>
+                                                            </li>
+                                                            <li class="fs-14 text-light-blue">
+                                                                <i class="fas fa-check"></i>
+                                                                <span class="text-light-white">No-prep veneers</span>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                    <div class="btns">
+                                                        <button type="button" class="btn-first btn-submit text-light-blue">
+                                                        Book Appointment
+                                                        </button>
+                                                        <a href="#" class="morebtn fs-14 fw-500 text-light-blue">
+                                                            More Details
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane container fade" id="pediatric-dentistry">
+                                    <div class="tab-inner">
+                                        <div class="row">
+                                            <div class="col-lg-6">
+                                                <div class="img-sec mb-md-40">
+                                                    <img src="https://via.placeholder.com/500x460" class="full-width" alt="img">
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6 align-self-center">
+                                                <div class="content-box">
+                                                    <h4 class="text-custom-black">What does pediatric dentistry do?</h4>
+                                                    <p class="text-light-white">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text.</p>
+                                                    <div class="list">
+                                                        <ul class="custom">
+                                                            <li class="fs-14 text-light-blue">
+                                                                <i class="fas fa-check"></i>
+                                                                <span class="text-light-white">Optometrist</span>
+                                                            </li>
+                                                            <li class="fs-14 text-light-blue">
+                                                                <i class="fas fa-check"></i>
+                                                                <span class="text-light-white">Ophthalmologist</span>
+                                                            </li>
+                                                            <li class="fs-14 text-light-blue">
+                                                                <i class="fas fa-check"></i>
+                                                                <span class="text-light-white">Gynecologist</span>
+                                                            </li>
+                                                            <li class="fs-14 text-light-blue">
+                                                                <i class="fas fa-check"></i>
+                                                                <span class="text-light-white">Endocrinologist</span>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                    <div class="btns">
+                                                        <button type="button" class="btn-first btn-submit text-light-blue">
+                                                        Book Appointment
+                                                        </button>
+                                                        <a href="#" class="morebtn fs-14 fw-500 text-light-blue">
+                                                            More Details
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane container fade" id="preventive-dentistry">
+                                    <div class="tab-inner">
+                                        <div class="row">
+                                            <div class="col-lg-6">
+                                                <div class="img-sec mb-md-40">
+                                                    <img src="https://via.placeholder.com/500x460" class="full-width" alt="img">
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6 align-self-center">
+                                                <div class="content-box">
+                                                    <h4 class="text-custom-black">What does preventive dentistry do?</h4>
+                                                    <p class="text-light-white">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text.</p>
+                                                    <div class="list">
+                                                        <ul class="custom">
+                                                            <li class="fs-14 text-light-blue">
+                                                                <i class="fas fa-check"></i>
+                                                                <span class="text-light-white">Cavities</span>
+                                                            </li>
+                                                            <li class="fs-14 text-light-blue">
+                                                                <i class="fas fa-check"></i>
+                                                                <span class="text-light-white">Enamel Loss</span>
+                                                            </li>
+                                                            <li class="fs-14 text-light-blue">
+                                                                <i class="fas fa-check"></i>
+                                                                <span class="text-light-white">Gingivitis</span>
+                                                            </li>
+                                                            <li class="fs-14 text-light-blue">
+                                                                <i class="fas fa-check"></i>
+                                                                <span class="text-light-white">Periodontitis</span>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                    <div class="btns">
+                                                        <button type="button" class="btn-first btn-submit text-light-blue">
+                                                        Book Appointment
+                                                        </button>
+                                                        <a href="#" class="morebtn fs-14 fw-500 text-light-blue">
+                                                            More Details
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane container fade" id="dental-crowns">
+                                    <div class="tab-inner">
+                                        <div class="row">
+                                            <div class="col-lg-6">
+                                                <div class="img-sec mb-md-40">
+                                                    <img src="https://via.placeholder.com/500x460" class="full-width" alt="img">
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6 align-self-center">
+                                                <div class="content-box">
+                                                    <h4 class="text-custom-black">What do dental crowns do?</h4>
+                                                    <p class="text-light-white">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text.</p>
+                                                    <div class="list">
+                                                        <ul class="custom">
+                                                            <li class="fs-14 text-light-blue">
+                                                                <i class="fas fa-check"></i>
+                                                                <span class="text-light-white">Cracked teeth</span>
+                                                            </li>
+                                                            <li class="fs-14 text-light-blue">
+                                                                <i class="fas fa-check"></i>
+                                                                <span class="text-light-white">Worn-down teeth</span>
+                                                            </li>
+                                                            <li class="fs-14 text-light-blue">
+                                                                <i class="fas fa-check"></i>
+                                                                <span class="text-light-white">Canal treatment</span>
+                                                            </li>
+                                                            <li class="fs-14 text-light-blue">
+                                                                <i class="fas fa-check"></i>
+                                                                <span class="text-light-white">Badly Shaped Teeth</span>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                    <div class="btns">
+                                                        <button type="button" class="btn-first btn-submit text-light-blue">
+                                                        Book Appointment
+                                                        </button>
+                                                        <a href="#" class="morebtn fs-14 fw-500 text-light-blue">
+                                                            More Details
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- End why choose us -->
+         <section class="section-padding doctors-team-style-2">
+            <div class="container">
+                <div class="section-header">
+                    <div class="section-heading">
+                        <h3 class="text-custom-black fw-700">Our Doctors</h3>
+                        <img src="{% static '/images/title-icon.png' %}" class="mb-xl-20" alt="img">
+                        <div class="section-description">
+                            <p class="text-light-white">
+                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                              <div class="card-body table-responsive p-0">
+                <table class="table table-hover text-nowrap">
+                  <thead>
+                    <tr>
+                      <th>ID</th>
+                      <th>First Name</th>
+                      <th>Last Name</th>
+                      <th>Username</th>
+                      <th>Email</th>
+                      <th>Address</th>
+                      <th>Gender</th>
+                      <th>Profile Pic</th>
+                      <th>Department</th>
+                      <th>Degree</th>
+                      <th>Designation</th>
+                      <th>Last Login</th>
+                      <th>Date Joined</th>
+                      <th>Action</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                  {% for doctors in doctor_list %}
+                    <tr>
+                      <td>{{ doctors.admin.id }}</td>
+                      <td>{{ doctors.admin.first_name}}</td>
+                      <td>{{ doctors.admin.last_name }}</td>
+                      <td>{{ doctors.admin.username }}</td>
+                      <td>{{ doctors.admin.email }}</td>
+                      <td>{{ doctors.address }}</td>
+                      <td>{{ doctors.gender }}</td>
+                      <td><img src="{{ doctors.profile_pic }} " style="width: 50px"></td>
+                      <td>{{ doctors.department_id.department_name }}</td>
+                      <td>{{ doctors.degree }}</td>
+                      <td>{{ doctors.designation }}</td>
+                      <td>{{ doctors.admin.last_login }}</td>
+                      <td>{{ doctors.admin.date_joined }}</td>
+                      <td><a href="/edit_doctor/{{ doctors.admin.id }}" class="btn btn-outline-success">Edit</a> </td>
+
+                                 </tr>
+                  {% endfor %}
+                    <tr>
+
+
+
+                  </tbody>
+                </table>
+              </div>
+
+                    <div class="col-12 no-padding">
+
+                        <div class="doctors-slider">
+                               {% for doctors in doctor_list %}
+                            <div class="slide-item col-12">
+                                <div class="team-block p-relative">
+                                    <div class="inner-box">
+                                        <div class="image animate-img">
+                                            <img src="{{ doctors.profile_pic }}" alt="img" class="full-width">
+                                            <div class="overlay-box">
+                                                <div class="overlay-inner p-relative full-height">
+                                                    <ul class="team-social-box custom">
+                                                        <li class="youtube"><a href="#" class="fab fa-youtube fs-16"></a></li>
+                                                        <li class="linkedin"><a href="#" class="fab fa-linkedin fs-16"></a></li>
+                                                        <li class="facebook"><a href="#" class="fab fa-facebook-f fs-16"></a></li>
+                                                        <li class="twitter"><a href="#" class="fab fa-twitter fs-16"></a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="lower-content p-relative text-center">
+                                            <h4><a href="doctor_details/{{ doctors.admin.id }}" class="text-custom-black fw-600 fs-20">{{ doctors.admin.first_name}} {{ doctors.admin.last_name }}</a></h4>
+                                            <p class="designation text-light-white">{{ doctors.department_id.department_name }}</p>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+             {% endfor %}
+                        </div>
+
+
+                    </div>
+
+                </div>
+            </div>
+        </section>
+        <!-- End Team Doctors -->
+
+        <!-- End Team Doctors -->
+        <!-- Start Testimonials -->
+        <section class="testimonials section-padding">
+            <div class="overlay overlay-bg-black"></div>
+            <div class="pattern"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-5 col-lg-6 align-self-center">
+                        <div class="testimonial-box mb-md-80">
+                            <div class="section-header">
+                                <div class="section-heading">
+                                    <h3 class="text-custom-white fw-700">Our Testimonials</h3>
+                                    <img src="{% static '/images/title-icon.png' %}" class="mb-xl-20" alt="img">
+                                    <div class="section-description">
+                                        <p class="text-custom-white">
+                                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="testimonials-wrapper">
+                                <ul class="testimonials-inner custom testimonial-slider">
+                                    <li>
+                                        <div class="testimonial-content">
+                                            <h6 class="text-custom-white fs-18"><i class="fas fa-quote-left"></i> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sed diam eget risus varius blandit sit amet non magna. <i class="fas fa-quote-right"></i></h6>
+                                            <div class="testimonials-author-box">
+                                                <div class="testimonials-author animate-img rounded-circle">
+                                                    <img src="https://via.placeholder.com/58" class="image-fit rounded-circle" alt="Author image">
+                                                </div>
+                                                <ul class="author-info custom">
+                                                    <li class="text-custom-white fs-18 text-left">Linda Choi<span class="fs-14 fw-300"><i class="fab fa-twitter"></i> @twitterhandle</span></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="testimonial-content">
+                                            <h6 class="text-custom-white fs-18"><i class="fas fa-quote-left"></i> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sed diam eget risus varius blandit sit amet non magna. <i class="fas fa-quote-right"></i></h6>
+                                            <div class="testimonials-author-box">
+                                                <div class="testimonials-author animate-img rounded-circle">
+                                                    <img src="https://via.placeholder.com/58" class="image-fit rounded-circle" alt="Author image">
+                                                </div>
+                                                <ul class="author-info custom">
+                                                    <li class="text-custom-white fs-18 text-left">Jhon Deo<span class="fs-14 fw-300"><i class="fab fa-twitter"></i> @twitterhandle</span></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-7 col-lg-6">
+                        <div class="video-box full-height">
+                            <div class="video_wrapper video_wrapper_full js-videoWrapper">
+                                <iframe class="videoIframe js-videoIframe" src="https://www.youtube.com/embed/AdZrEIo6UYU" data-src="https://www.youtube.com/embed/AdZrEIo6UYU?autoplay=1" allow="autoplay"></iframe>
+                                <div class="videoPoster js-videoPoster">
+                                    <img src="https://via.placeholder.com/635x405" class="img-fluid full-width" alt="#">
+                                    <div class="video-inner video-btn-wrapper"> <a href="JavaScript:Void(0);" class="text-light-blue"><i class="flaticon-play-button"></i></a></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- End Testimonials -->
+
+        <!-- Start Blog -->
+
+          <section class="section-padding our_articles">
+            <div class="container">
+                <div class="section-header">
+                    <div class="section-heading">
+                        <h3 class="text-custom-black fw-700">Our Blog</h3>
+                        <img src="{% static '' %}images/title-icon.png" class="mb-xl-20" alt="img">
+                        <div class="section-description">
+                            <p class="text-light-white">
+                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 no-padding">
+                        <div class="blog-slider">
+                            <article class="post col-12">
+                                <div class="single-blog">
+                                    <div class="post-meta">
+                                      <div class="post-date"><a href="blog-single.html" class="text-custom-white"> 4, Nov</a></div>
+                                    </div>
+                                    <div class="blog-photo">
+                                      <img src="https://via.placeholder.com/350x233" class="full-width" alt="#">
+                                    </div>
+                                    <div class="post-contnet">
+                                      <h2 class="post-title text-custom-black">Top 5 Foods That Can Whiten Your Teeth Effectively</h2>
+                                      <p class="text-light-white">Lorem ipsum dolor sit in faucibus ipsum. Cras euismod faucibus sagittis.</p>
+                                      <div class="post-author">
+                                        <span class="text-custom-black fw-500 fs-14">Post by <a href="blog-single.html" class="text-light-blue">Michael Dav</a></span>
+                                      </div>
+                                    </div>
+                                    <div class="blog-overlay">
+                                      <div class="right-text-effect post-content">
+                                        <h2 class="post-title"><a href="blog-single.html" class="text-white">Top 5 Foods That Can Whiten Your Teeth Effectively</a></h2>
+                                        <p>Lorem ipsum dolor sit in faucibus ipsum. Cras euismod faucibus sagittis. Cras euismod faucibus sagittis.</p>
+                                      </div>
+                                      <div class="blog-read-more-icon">
+                                        <div class="post-author">
+                                          <span class="text-dark-blue fw-600 fs-14">Post by <a href="blog-single.html" class="text-white">Michael Dav</a></span>
+                                        </div>
+                                        <a href="blog-single.html" class="fw-500 fs-14">Read More</a>
+                                      </div>
+                                    </div>
+                                </div>
+                            </article>
+                            <article class="post col-12">
+                                <div class="single-blog">
+                                    <div class="post-meta">
+                                      <div class="post-date"><a href="blog-single.html" class="text-custom-white"> 29, June</a></div>
+                                    </div>
+                                    <div class="blog-photo">
+                                      <img src="https://via.placeholder.com/350x233" class="full-width" alt="#">
+                                      <div class="transform-center d-flex justify-content-center">
+                                      <div class="video-btn-wrapper"> <a href="JavaScript:Void(0);" class="text-light-blue"><i class="flaticon-play-button"></i></a></div></div>
+                                    </div>
+                                    <div class="post-contnet">
+                                      <h2 class="post-title text-custom-black">How to Get Your Stubborn Husband to Go to the Dentist</h2>
+                                      <p class="text-light-white">Lorem ipsum dolor sit in faucibus ipsum. Cras euismod faucibus sagittis.</p>
+                                      <div class="post-author">
+                                        <span class="text-custom-black fw-500 fs-14">Post by <a href="blog-single.html" class="text-light-blue">Jhone Deo</a></span>
+                                      </div>
+                                    </div>
+                                    <div class="blog-overlay">
+                                      <div class="right-text-effect post-content">
+                                        <h2 class="post-title"><a href="blog-single.html" class="text-white">How to Get Your Stubborn Husband to Go to the Dentist</a></h2>
+                                        <p>Lorem ipsum dolor sit in faucibus ipsum. Cras euismod faucibus sagittis. Cras euismod faucibus sagittis.</p>
+                                      </div>
+                                      <div class="blog-read-more-icon">
+                                        <div class="post-author">
+                                          <span class="text-dark-blue fw-600 fs-14">Post by <a href="blog-single.html" class="text-white">Jhone Deo</a></span>
+                                        </div>
+                                        <a href="blog-single.html" class="fw-500 fs-14">Read More</a>
+                                      </div>
+                                    </div>
+                                </div>
+                            </article>
+                            <article class="post col-12">
+                                <div class="single-blog">
+                                    <div class="post-meta">
+                                      <div class="post-date"><a href="blog-single.html" class="text-custom-white"> 30, May</a></div>
+                                    </div>
+                                    <div class="blog-photo">
+                                      <img src="https://via.placeholder.com/350x233" class="full-width" alt="#">
+                                    </div>
+                                    <div class="post-contnet">
+                                      <h2 class="post-title text-custom-black">The Dangers Of Bleachorexia That You Should Know</h2>
+                                      <p class="text-light-white">Lorem ipsum dolor sit in faucibus ipsum. Cras euismod faucibus sagittis.</p>
+                                      <div class="post-author">
+                                        <span class="text-custom-black fw-500 fs-14">Post by <a href="blog-single.html" class="text-light-blue">Linda Choi</a></span>
+                                      </div>
+                                    </div>
+                                    <div class="blog-overlay">
+                                      <div class="right-text-effect post-content">
+                                        <h2 class="post-title"><a href="blog-single.html" class="text-white">The Dangers Of Bleachorexia That You Should Know</a></h2>
+                                        <p>Lorem ipsum dolor sit in faucibus ipsum. Cras euismod faucibus sagittis. Cras euismod faucibus sagittis.</p>
+                                      </div>
+                                      <div class="blog-read-more-icon">
+                                        <div class="post-author">
+                                          <span class="text-dark-blue fw-600 fs-14">Post by <a href="blog-single.html" class="text-white">Linda Choi</a></span>
+                                        </div>
+                                        <a href="blog-single.html" class="fw-500 fs-14">Read More</a>
+                                      </div>
+                                    </div>
+                                </div>
+                            </article>
+                            <article class="post col-12">
+                                <div class="single-blog">
+                                    <div class="post-meta">
+                                      <div class="post-date"><a href="blog-single.html" class="text-custom-white"> 13, Nov</a></div>
+                                    </div>
+                                    <div class="blog-photo">
+                                      <img src="https://via.placeholder.com/350x233" class="full-width" alt="#">
+                                      <div class="transform-center d-flex justify-content-center">
+                                      <div class="video-btn-wrapper"> <a href="JavaScript:Void(0);" class="text-light-blue"><i class="flaticon-play-button"></i></a></div></div>
+                                    </div>
+                                    <div class="post-contnet">
+                                      <h2 class="post-title text-custom-black">Top 5 Foods That Can Whiten Your Teeth Effectively</h2>
+                                      <p class="text-light-white">Lorem ipsum dolor sit in faucibus ipsum. Cras euismod faucibus sagittis.</p>
+                                      <div class="post-author">
+                                        <span class="text-custom-black fw-500 fs-14">Post by <a href="blog-single.html" class="text-light-blue">Jhone Deo</a></span>
+                                      </div>
+                                    </div>
+                                    <div class="blog-overlay">
+                                      <div class="right-text-effect post-content">
+                                        <h2 class="post-title"><a href="blog-single.html" class="text-white">Top 5 Foods That Can Whiten Your Teeth Effectively</a></h2>
+                                        <p>Lorem ipsum dolor sit in faucibus ipsum. Cras euismod faucibus sagittis. Cras euismod faucibus sagittis.</p>
+                                      </div>
+                                      <div class="blog-read-more-icon">
+                                        <div class="post-author">
+                                          <span class="text-dark-blue fw-600 fs-14">Post by <a href="blog-single.html" class="text-white">Jhone Deo</a></span>
+                                        </div>
+                                        <a href="blog-single.html" class="fw-500 fs-14">Read More</a>
+                                      </div>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- End Blog -->
+        <!-- Start Calender -->
+        <section class="section-padding doctor-calendar">
+            <div class="overlay overlay-bg-black"></div>
+            <div class="pattern"></div>
+            <div class="container">
+                <div class="section-header">
+                    <div class="section-heading">
+                        <h3 class="text-custom-white fw-700">Doctors Schedule</h3>
+                        <img src="{% static '/images/title-icon.png' %}" class="mb-xl-20" alt="img">
+                        <div class="section-description">
+                            <p class="text-custom-white">
+                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="doctor-calendar-table table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Time</th>
+                                        <th>Monday</th>
+                                        <th>Tuesday</th>
+                                        <th>Wednesday</th>
+                                        <th>Thursday</th>
+                                        <th>Friday</th>
+                                        <th>Saturday</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+                                    <tr>
+                                        <td><span class="time">9.00</span></td>
+                                        <td>
+                                            <h3>Dr. Tanner</h3>
+                                            <span>Dermatologists</span>
+                                        </td>
+                                        <td>
+                                            <h3>Dr. Kwak</h3>
+                                            <span>Ear, Nose</span>
+                                        </td>
+                                        <td>
+                                            <h3>Dr. Slaughter</h3>
+                                            <span>Neurologist</span>
+                                        </td>
+                                        <td></td>
+                                        <td>
+                                            <h3>Dr. Foley</h3>
+                                            <span>Oncologist</span>
+                                        </td>
+                                        <td>
+                                            <h3>Dr. Palmer</h3>
+                                            <span>Maxine lowe</span>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td><span class="time">12.00</span></td>
+                                        <td></td>
+                                        <td>
+                                            <h3>Dr. Megahead</h3>
+                                            <span>Orthopedics</span>
+                                        </td>
+                                        <td>
+                                            <h3>Dr. Neupane</h3>
+                                            <span>Pain Management</span>
+                                        </td>
+                                        <td>
+                                            <h3>Dr. Breidin</h3>
+                                            <span>Radiologist</span>
+                                        </td>
+                                        <td></td>
+                                        <td>
+                                            <h3>Dr. Pipe</h3>
+                                            <span>Surgeons</span>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td><span class="time">15.00</span></td>
+                                        <td>
+                                            <h3>Dr. Tanner</h3>
+                                            <span>Dermatologists</span>
+                                        </td>
+                                        <td>
+                                            <h3>Dr. Kwak</h3>
+                                            <span>Ear, Nose</span>
+                                        </td>
+                                        <td></td>
+                                        <td>
+                                            <h3>Dr. Slaughter</h3>
+                                            <span>Neurologist</span>
+                                        </td>
+                                        <td>
+                                            <h3>Dr. Foley</h3>
+                                            <span>Oncologist</span>
+                                        </td>
+                                        <td></td>
+                                    </tr>
+
+                                    <tr>
+                                        <td><span class="time">18.00</span></td>
+                                        <td>
+                                            <h3>Dr. Slaughter</h3>
+                                            <span>Neurologist</span>
+                                        </td>
+                                        <td>
+                                            <h3>Dr. Megahead</h3>
+                                            <span>Orthopedics</span>
+                                        </td>
+                                        <td>
+                                            <h3>Dr. Neupane</h3>
+                                            <span>Pain Management</span>
+                                        </td>
+                                        <td>
+                                            <h3>Dr. Breidin</h3>
+                                            <span>Radiologist</span>
+                                        </td>
+                                        <td>
+                                            <h3>Dr. Kwak</h3>
+                                            <span>Ear, Nose</span>
+                                        </td>
+                                        <td>
+                                            <h3>Dr. Pipe</h3>
+                                            <span>Surgeons</span>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- End Calender -->
+        <!-- Start Newsletter -->
+        <section class="newsletter-style-1 section-padding bg-light-blue">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6">
+                        <div class="newsletter-content-wrapper mb-md-40">
+                            <h3 class="text-custom-white fw-600">Join Our Newsletter</h3>
+                            <p class="text-custom-white">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="newsletter-form-wrapper">
+                            <form>
+                                <div class="input-group">
+                                    <input type="email" name="#" class="form-control form-control-custom" placeholder="Email Id">
+                                    <div class="input-group-append">
+                                        <button type="submit">Subscribe</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- End Newsletter -->
+        <!-- Start Footer -->
+        <footer class="section-padding bg-custom-white footer-style-1">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 col-lg-3">
+                        <div class="footer-box mb-md-40">
+                            <div class="logo">
+                                <a href="#">
+                                    <img src="https://via.placeholder.com/152x42" class="img-fluid image-fit" alt="logo">
+                                </a>
+                            </div>
+                            <p class="text-custom-black no-margin">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="footer-info mb-md-40">
+                            <h5 class="text-custom-black fw-600">Working Time</h5>
+                            <p class="no-margin text-custom-black fs-14">
+
+                                Saturday - Friday: <span class="text-custom-black fw-600">Always Open</span><br>
+
+
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="footer-info mb-sm-40">
+                            <h5 class="text-custom-black fw-600">Emergency Cases</h5>
+                            <h4 class="text-light-blue fw-600">09612-310617</h4>
+                            <p class="no-margin text-custom-black fs-14">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="footer-info">
+                            <h5 class="text-custom-black fw-600">Our Location</h5>
+                            <p class="text-custom-black fs-14">Plot-03, Embankment Drive Way,<br> Sector-10, Uttara Model Town,<br>Dhaka-1230</p>
+                            <p class="no-margin text-custom-black fs-14">
+                                Email: <a href="#" class="text-custom-black fw-600">info@amcghbd.org</a><br>
+                                Phone: <a href="#" class="text-custom-black fw-600">09612-310617</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- End Footer -->
+        <!-- Start Copyright -->
+        <div class="copyright-style-1">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 align-self-center">
+                        <p class="text-custom-black">
+                            © 2022 <a href="#" class="fw-600" target="_blank">AMCGH, IT Department.</a> All Rights Reserved
+                        </p>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="social-media mb-xl-20">
+                            <ul class="custom">
+                                <li><a href="https://www.facebook.com/ahsaniacancer" class="text-light-grey fs-14"><i class="fab fa-facebook-f"></i></a></li>
+                                <li><a href="#" class="text-light-grey fs-14"><i class="fab fa-twitter"></i></a></li>
+                                <li><a href="#" class="text-light-grey fs-14"><i class="fab fa-linkedin"></i></a></li>
+                                <li><a href="#" class="text-light-grey fs-14"><i class="fab fa-youtube"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Copyright -->
+        <!-- back to top -->
+        <div id="back-top" class="back-top">
+          <a href="#top"><i class="flaticon-up-arrow"></i></a>
+        </div>
+    </div>/>
+    <script src="{% static 'assets/js/jquery.min.js' %}"></script>
+    <!-- Popper -->
+    <script src="{% static 'assets/js/popper.min.js' %}"></script>
+    <!-- Bootstrap -->
+    <script src="{% static 'assets/js/bootstrap.min.js' %}"></script>
+    <!-- Range Slider -->
+    <script src="{% static 'assets/js/ion.rangeSlider.min.js '%}"></script>
+    <!-- Slick Slider -->
+    <script src="{% static 'assets/js/slick.min.js' %}"></script>
+    <!-- Datepicker -->
+    <script src="{% static 'assets/js/datepicker.js' %}"></script>
+    <script src="{% static 'assets/js/datepicker.en.js' %}"></script>
+    <!-- Nice Select -->
+    <script src="{% static 'assets/js/jquery.nice-select.js' %}"></script>
+    <!-- Nice Select -->
+    <script src="{% static 'assets/js/particles.js' %}"></script>
+    <!-- Magnific Popup -->
+    <script src="{% static 'assets/js/jquery.magnific-popup.min.js' %}"></script>
+    <!-- Google Map -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDnd9JwZvXty-1gHZihMoFhJtCXmHfeRQg"></script>
+    <!-- Isotope Gallery -->
+    <script src="{% static 'assets/js/isotope.pkgd.min.js' %}"></script>
+    <!-- Custom Js -->
+    <script src="{% static 'assets/js/custom.js' %}"></script>
+
+</body>
+</html>
