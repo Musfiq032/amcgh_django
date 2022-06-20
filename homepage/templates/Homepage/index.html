@@ -10,11 +10,11 @@
     <meta name="description" content="#">
     <title>Homepage | Ahsania Mission Cancer & General Hospital</title>
     <!-- Fav and touch icons -->
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{% static 'assets/images/favicon.ico' %}">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="{% static 'assets/images/favicon.ico' %}">
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="{% static 'assets/images/favicon.ico' %}">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{% static 'assets/../../../static/css/images/../../../static/css/favicon.ico' %}">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="{% static 'assets/../../../static/css/images/../../../static/css/favicon.ico' %}">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="{% static 'assets/../../../static/css/images/../../../static/css/favicon.ico' %}">
     <link rel="apple-touch-icon-precomposed" href="#">
-    <link rel="shortcut icon" href="{% static 'assets/images/favicon.ico' %}">
+    <link rel="shortcut icon" href="{% static 'assets/../../../static/css/images/../../../static/css/favicon.ico' %}">
     <!-- Bootstrap -->
     <link href="{% static 'assets/css/bootstrap.min.css' %}" rel="stylesheet">
     <!-- Fontawesome -->
@@ -209,25 +209,21 @@
                                 <table class="table text-custom-white">
                                     <tbody>
                                         <tr>
-                                            <td>Mon – Wed</td>
+                                            <td>Sat – Wed</td>
                                             <td> - </td>
-                                            <td class="text-right">9:00 AM - 7:00 PM</td>
+                                            <td class="text-right">9:00 AM - 5:00 PM</td>
                                         </tr>
                                         <tr>
                                             <td>Thursday</td>
                                             <td> - </td>
-                                            <td class="text-right">9:00 AM - 6:30 PM</td>
+                                            <td class="text-right">9:00 AM - 5:30 PM</td>
                                         </tr>
-                                         <tr>
+                                         <tr class="last-tr">
                                             <td>Friday</td>
                                             <td> - </td>
-                                            <td class="text-right">9:00 AM - 6:00 PM</td>
+                                            <td class="text-right">Closed</td>
                                         </tr>
-                                        <tr class="last-tr">
-                                            <td>Sun - Sun</td>
-                                            <td>-</td>
-                                            <td class="text-right">CLOSED</td>
-                                         </tr>
+
                                       </tbody>
                                 </table>
                             </div>
@@ -239,7 +235,6 @@
                                 <i class="flaticon-flag"></i>
                                 <h4 class="text-custom-white fw-700">Appointments</h4>
                                 <p class="text-custom-white">An magnis nulla dolor at sapien augue erat iaculis purus tempor magna ipsum and vitae a purus primis ipsum magna ipsum</p>
-                                <a href="#book-appointment" class="btn-first btn-submit-white fw-600 scrollbtn">Book Appointment</a>
                             </div>
                         </div>
                     </div>
@@ -382,115 +377,115 @@
         </section>
         <!-- End Main Services -->
         <!-- Start Appointment/faqs -->
-        <section class="book-appointment parallax section-padding" id="book-appointment">
-            <div class="overlay overlay-bg-black"></div>
-            <div class="pattern"></div>
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="booking-form p-relative">
-                            <div class="book-form-wrapper">
-                                <div class="section-header">
-                                    <div class="section-heading mx-auto text-center">
-                                        <h3 class="text-custom-black fw-700">Book an Appointment</h3>
-                                        <img src="{% static '/images/title-icon.png' %}" class="mb-xl-20" alt="img">
-                                        <div class="section-description">
-                                            <p class="text-light-white">
-                                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text.
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <form class="form-layout-1">
-                                    <div class="row">
-                                        <div class="col-lg-4 col-md-6">
-                                            <div class="form-group">
-                                                <div class="icon">
-                                                    <i class="flaticon-user"></i>
-                                                </div>
-                                                <label>Your Name</label>
-                                                <input type="text" name="#" class="form-control" placeholder="Your Name">
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-4 col-md-6">
-                                            <div class="form-group">
-                                                <div class="icon">
-                                                    <i class="flaticon-stethoscope"></i>
-                                                </div>
-                                                <label>Select Your Doctor</label>
-                                                <select class="form-control custom-select">
-                                                    <option>Dr. Anna Wright</option>
-                                                    <option>Dr. Kwak</option>
-                                                    <option>Dr. Anderson</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-4 col-md-6">
-                                            <div class="form-group">
-                                                <div class="icon">
-                                                    <i class="flaticon-information"></i>
-                                                </div>
-                                                <label>Select Your Services</label>
-                                                <select class="form-control custom-select">
-                                                    <option>Cardiology</option>
-                                                    <option>Urologic </option>
-                                                    <option>Neurology</option>
-                                                    <option>Medicine</option>
-                                                    <option>Surgery</option>
-                                                    <option>Urology</option>
-                                                    <option>Radiology</option>
-                                                    <option>Neurosurgery</option>
-                                                    <option>Bariatric</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-4 col-md-6">
-                                            <div class="form-group">
-                                                <div class="icon">
-                                                    <i class="flaticon-telephone"></i>
-                                                </div>
-                                                <label>Your Phone</label>
-                                                <input type="text" name="#" class="form-control" placeholder="Enter your Phone">
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-4 col-md-6">
-                                            <div class="form-group">
-                                                <div class="icon">
-                                                    <i class="flaticon-calendar"></i>
-                                                </div>
-                                                <label>Select Date</label>
-                                                <input type="text" name="#" class="form-control datepickr" placeholder="mm/dd/yy" readonly>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-4 col-md-6">
-                                            <div class="form-group">
-                                                <div class="icon">
-                                                    <i class="flaticon-wall-clock"></i>
-                                                </div>
-                                                <label>Add Time</label>
-                                                <input type="text" name="#" class="form-control timepickr" placeholder="12:00 PM" readonly>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-12 mb-xl-20">
-                                            <div class="form-group">
-                                                <div class="icon">
-                                                    <i class="flaticon-conversation"></i>
-                                                </div>
-                                                <label>Special Request</label>
-                                                <textarea class="form-control" rows="2" name="#" placeholder="Type Message"></textarea>
-                                            </div>
-                                        </div>
-                                        <div class="col-12 text-center">
-                                            <button type="submit" class="btn-first btn-submit text-light-blue fw-600">Make Appointment</button>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+{#        <section class="book-appointment parallax section-padding" id="book-appointment">#}
+{#            <div class="overlay overlay-bg-black"></div>#}
+{#            <div class="pattern"></div>#}
+{#            <div class="container">#}
+{#                <div class="row">#}
+{#                    <div class="col-lg-12">#}
+{#                        <div class="booking-form p-relative">#}
+{#                            <div class="book-form-wrapper">#}
+{#                                <div class="section-header">#}
+{#                                    <div class="section-heading mx-auto text-center">#}
+{#                                        <h3 class="text-custom-black fw-700">Book an Appointment</h3>#}
+{#                                        <img src="{% static '/images/title-icon.png' %}" class="mb-xl-20" alt="img">#}
+{#                                        <div class="section-description">#}
+{#                                            <p class="text-light-white">#}
+{#                                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text.#}
+{#                                            </p>#}
+{#                                        </div>#}
+{#                                    </div>#}
+{#                                </div>#}
+{#                                <form class="form-layout-1">#}
+{#                                    <div class="row">#}
+{#                                        <div class="col-lg-4 col-md-6">#}
+{#                                            <div class="form-group">#}
+{#                                                <div class="icon">#}
+{#                                                    <i class="flaticon-user"></i>#}
+{#                                                </div>#}
+{#                                                <label>Your Name</label>#}
+{#                                                <input type="text" name="#" class="form-control" placeholder="Your Name">#}
+{#                                            </div>#}
+{#                                        </div>#}
+{#                                        <div class="col-lg-4 col-md-6">#}
+{#                                            <div class="form-group">#}
+{#                                                <div class="icon">#}
+{#                                                    <i class="flaticon-stethoscope"></i>#}
+{#                                                </div>#}
+{#                                                <label>Select Your Doctor</label>#}
+{#                                                <select class="form-control custom-select">#}
+{#                                                    <option>Dr. Anna Wright</option>#}
+{#                                                    <option>Dr. Kwak</option>#}
+{#                                                    <option>Dr. Anderson</option>#}
+{#                                                </select>#}
+{#                                            </div>#}
+{#                                        </div>#}
+{#                                        <div class="col-lg-4 col-md-6">#}
+{#                                            <div class="form-group">#}
+{#                                                <div class="icon">#}
+{#                                                    <i class="flaticon-information"></i>#}
+{#                                                </div>#}
+{#                                                <label>Select Your Services</label>#}
+{#                                                <select class="form-control custom-select">#}
+{#                                                    <option>Cardiology</option>#}
+{#                                                    <option>Urologic </option>#}
+{#                                                    <option>Neurology</option>#}
+{#                                                    <option>Medicine</option>#}
+{#                                                    <option>Surgery</option>#}
+{#                                                    <option>Urology</option>#}
+{#                                                    <option>Radiology</option>#}
+{#                                                    <option>Neurosurgery</option>#}
+{#                                                    <option>Bariatric</option>#}
+{#                                                </select>#}
+{#                                            </div>#}
+{#                                        </div>#}
+{#                                        <div class="col-lg-4 col-md-6">#}
+{#                                            <div class="form-group">#}
+{#                                                <div class="icon">#}
+{#                                                    <i class="flaticon-telephone"></i>#}
+{#                                                </div>#}
+{#                                                <label>Your Phone</label>#}
+{#                                                <input type="text" name="#" class="form-control" placeholder="Enter your Phone">#}
+{#                                            </div>#}
+{#                                        </div>#}
+{#                                        <div class="col-lg-4 col-md-6">#}
+{#                                            <div class="form-group">#}
+{#                                                <div class="icon">#}
+{#                                                    <i class="flaticon-calendar"></i>#}
+{#                                                </div>#}
+{#                                                <label>Select Date</label>#}
+{#                                                <input type="text" name="#" class="form-control datepickr" placeholder="mm/dd/yy" readonly>#}
+{#                                            </div>#}
+{#                                        </div>#}
+{#                                        <div class="col-lg-4 col-md-6">#}
+{#                                            <div class="form-group">#}
+{#                                                <div class="icon">#}
+{#                                                    <i class="flaticon-wall-clock"></i>#}
+{#                                                </div>#}
+{#                                                <label>Add Time</label>#}
+{#                                                <input type="text" name="#" class="form-control timepickr" placeholder="12:00 PM" readonly>#}
+{#                                            </div>#}
+{#                                        </div>#}
+{#                                        <div class="col-md-12 mb-xl-20">#}
+{#                                            <div class="form-group">#}
+{#                                                <div class="icon">#}
+{#                                                    <i class="flaticon-conversation"></i>#}
+{#                                                </div>#}
+{#                                                <label>Special Request</label>#}
+{#                                                <textarea class="form-control" rows="2" name="#" placeholder="Type Message"></textarea>#}
+{#                                            </div>#}
+{#                                        </div>#}
+{#                                        <div class="col-12 text-center">#}
+{#                                            <button type="submit" class="btn-first btn-submit text-light-blue fw-600">Make Appointment</button>#}
+{#                                        </div>#}
+{#                                    </div>#}
+{#                                </form>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                </div>#}
+{#            </div>#}
+{#        </section>#}
         <!-- End Appointment/faqs -->
         <!-- Start Features -->
        <section class="section-padding features-sec">
@@ -982,9 +977,9 @@
                     <div class="col-xl-7 col-lg-6">
                         <div class="video-box full-height">
                             <div class="video_wrapper video_wrapper_full js-videoWrapper">
-                                <iframe class="videoIframe js-videoIframe" src="https://www.youtube.com/embed/AdZrEIo6UYU" data-src="https://www.youtube.com/embed/AdZrEIo6UYU?autoplay=1" allow="autoplay"></iframe>
+                                <iframe class="videoIframe js-videoIframe" src="https://www.youtube.com/watch?v=NxXtJ4hnHbM" data-src="https://www.youtube.com/embed/NxXtJ4hnHbM?autoplay=1" allow="autoplay"></iframe>
                                 <div class="videoPoster js-videoPoster">
-                                    <img src="https://via.placeholder.com/635x405" class="img-fluid full-width" alt="#">
+                                    <img src="{% static 'assets/images/Banner_1_1920x800.JPG' %}" class="img-fluid full-width" alt="#">
                                     <div class="video-inner video-btn-wrapper"> <a href="JavaScript:Void(0);" class="text-light-blue"><i class="flaticon-play-button"></i></a></div>
                                 </div>
                             </div>
