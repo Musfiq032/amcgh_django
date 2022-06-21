@@ -1,0 +1,106 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+        <!-- Start Login -->
+        <section class="section-padding bg-light-white login-register">
+            <div class="container">
+                <div class="row login-box">
+                    <div class="col-lg-6 align-self-center no-padding">
+                        <div class="form-section align-self-center">
+                            <h3 class="text-custom-black fw-400 mb-xl-30">Sign into your account</h3>
+                            <div class="square-tabs mb-2">
+                                <ul class="custom nav nav-tabs">
+                                    <li class="nav-item">
+                                        <a href="{% url 'Users:login' %}" class="nav-link active">Login</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="{% url 'Users:register' %}" class="nav-link">Register</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <form class="form-layout-1" method="post">
+                                {% csrf_token %}
+                                <div class="row">
+                                    <div class="col-12 mb-xl-30">
+                                        <div class="form-group">
+                                            <div class="icon">
+                                                <i class="fas fa-user"></i>
+                                            </div>
+                                            <label class="text-left">Username</label>
+                                            <input type="text" name="username" class="form-control" placeholder="Username">
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="icon">
+                                                <i class="fas fa-unlock-alt"></i>
+                                            </div>
+                                            <label class="text-left">Password</label>
+                                            <input type="password" name="password" class="form-control" placeholder="Password">
+                                        </div>
+                                    </div>
+
+
+                                    <div class="col-12">
+                                        <div class="row align-items-center form-bottm">
+                                            <div class="col-sm-6">
+                                                <button class="btn-first btn-submit text-light-blue" type="submit">Login</button>
+
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <a href="{% url 'password_reset' %}" class="fs-14 fw-600 text-light-blue">Forgot Password</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+<div class="mb-3">
+                   {% if messages %}
+                       {% for message in messages %}
+              <div class="alert alert-success" role="alert">
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+  <strong>Failure!</strong> {{ message }}
+</div>
+
+
+                       {% endfor %}
+                   {% endif %}
+               </div>
+                            </form>
+
+                        </div>
+                    </div>
+                    <div class="col-lg-6 bg-color-15 align-self-center no-padding bg-img">
+                        <div class="info clearfix">
+                            <div class="logo-2">
+                                <a href="../../Home/Templates/Home/index.html">
+                                    <img src="https://via.placeholder.com/85x30" alt="logo">
+                                </a>
+                            </div>
+                            <h5 class="text-custom-white text-uppercase fw-600">Welcome to Genmed</h5>
+                            <div class="social-list">
+                                <a href="#" class="facebook-bg">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                                <a href="#" class="twitter-bg">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                                <a href="#" class="google-bg">
+                                    <i class="fab fa-google"></i>
+                                </a>
+                                <a href="#" class="linkedin-bg">
+                                    <i class="fab fa-linkedin"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    <script>
+    window.setTimeout(function() {
+    $(".alert").fadeTo(500, 0).slideUp(500, function(){
+        $(this).remove();
+    });
+}, 2000);
+    </script>
+        <!-- End Login -->
+{% endblock %}

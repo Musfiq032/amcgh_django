@@ -820,8 +820,8 @@
                 </div>
             </div>
         </section>
-        <!-- End why choose us -->
-         <section class="section-padding doctors-team-style-2">
+
+             <section class="section-padding doctors-team-style-2">
             <div class="container">
                 <div class="section-header">
                     <div class="section-heading">
@@ -835,55 +835,7 @@
                     </div>
                 </div>
                 <div class="row">
-                              <div class="card-body table-responsive p-0">
-                <table class="table table-hover text-nowrap">
-                  <thead>
-                    <tr>
-                      <th>ID</th>
-                      <th>First Name</th>
-                      <th>Last Name</th>
-                      <th>Username</th>
-                      <th>Email</th>
-                      <th>Address</th>
-                      <th>Gender</th>
-                      <th>Profile Pic</th>
-                      <th>Department</th>
-                      <th>Degree</th>
-                      <th>Designation</th>
-                      <th>Last Login</th>
-                      <th>Date Joined</th>
-                      <th>Action</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                  {% for doctors in doctor_list %}
-                    <tr>
-                      <td>{{ doctors.admin.id }}</td>
-                      <td>{{ doctors.admin.first_name}}</td>
-                      <td>{{ doctors.admin.last_name }}</td>
-                      <td>{{ doctors.admin.username }}</td>
-                      <td>{{ doctors.admin.email }}</td>
-                      <td>{{ doctors.address }}</td>
-                      <td>{{ doctors.gender }}</td>
-                      <td><img src="{{ doctors.profile_pic }} " style="width: 50px"></td>
-                      <td>{{ doctors.department_id.department_name }}</td>
-                      <td>{{ doctors.degree }}</td>
-                      <td>{{ doctors.designation }}</td>
-                      <td>{{ doctors.admin.last_login }}</td>
-                      <td>{{ doctors.admin.date_joined }}</td>
-                      <td><a href="/edit_doctor/{{ doctors.admin.id }}" class="btn btn-outline-success">Edit</a> </td>
-
-                                 </tr>
-                  {% endfor %}
-                    <tr>
-
-
-
-                  </tbody>
-                </table>
-              </div>
-
-                    <div class="col-12 no-padding">
+                 <div class="col-12 no-padding">
 
                         <div class="doctors-slider">
                                {% for doctors in doctor_list %}
@@ -917,9 +869,11 @@
 
                     </div>
 
+
                 </div>
             </div>
         </section>
+
         <!-- End Team Doctors -->
 
         <!-- End Team Doctors -->
@@ -979,7 +933,7 @@
                             <div class="video_wrapper video_wrapper_full js-videoWrapper">
                                 <iframe class="videoIframe js-videoIframe" src="https://www.youtube.com/watch?v=NxXtJ4hnHbM" data-src="https://www.youtube.com/embed/NxXtJ4hnHbM?autoplay=1" allow="autoplay"></iframe>
                                 <div class="videoPoster js-videoPoster">
-                                    <img src="{% static 'assets/images/Banner_1_1920x800.JPG' %}" class="img-fluid full-width" alt="#">
+                                    <img src="{% static 'assets/images/../../static/assets/css/images/Banner_1_1920x800.JPG' %}" class="img-fluid full-width" alt="#">
                                     <div class="video-inner video-btn-wrapper"> <a href="JavaScript:Void(0);" class="text-light-blue"><i class="flaticon-play-button"></i></a></div>
                                 </div>
                             </div>

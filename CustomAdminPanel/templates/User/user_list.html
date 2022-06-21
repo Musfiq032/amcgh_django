@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <section class="section-padding doctors-team-style-2">
+            <div class="container">
+                <div class="section-header">
+                    <div class="section-heading">
+                        <h3 class="text-custom-black fw-700">Our Doctors</h3>
+                        <img src="{% static '/images/title-icon.png' %}" class="mb-xl-20" alt="img">
+                        <div class="section-description">
+                            <p class="text-light-white">
+                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            <div class="container">
+                         <div class="row">
+                <div class="col-lg-12">
+                    <div class="search-element">
+                        <div class="card">
+                            <div class="card-body">
+                                <form method="GET" action="." >
+                                     <button class="btn  btn-primary" type="submit" style="float:right"><i class="fas fa-search"></i> Search</button>
+                    <input class="form-control" type="search" placeholder="Search" aria-label="Search" data-width="250" style="width: 250px;float:right" name="q" value="{{ filter }}">
+                                </form>
+                                <b style="float: left">Sort By : - </b>
+                                        <a href="#">ID</a>  |
+                                        <a href="#">Title</a> |
+                                        <a href="#">Description</a>
+
+                            </div>
+                        </div>
+                    </div>
+
+                     </div>
+
+                 </div>
+            </div>
+
+
+<div class="row">
+{% for user_list in user_list %}
+        <div class="col-md-3" style="float:left">
+                    <div class="col-12 no-padding">
+                        <div class="doctors-slider">
+                            <div class="slide-item col-12">
+                                <div class="team-block p-relative">
+                                    <div class="inner-box">
+                                        <div class="image animate-img">
+                                           <a href="{{ user_list.get_absolute_url }}"><img src="{{ user_list.profile_image.url}}" alt="img" class="full-width"></a>
+                                            <div class="overlay-box">
+                                                <div class="overlay-inner p-relative full-height">
+                                                    <ul class="team-social-box custom">
+                                                        <li class="youtube"><a href="#" class="fab fa-youtube fs-16"></a></li>
+                                                        <li class="linkedin"><a href="#" class="fab fa-linkedin fs-16"></a></li>
+                                                        <li class="facebook"><a href="#" class="fab fa-facebook-f fs-16"></a></li>
+                                                        <li class="twitter"><a href="#" class="fab fa-twitter fs-16"></a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="lower-content p-relative text-center">
+                                            <h4><a href="{{ object.get_absolute_url }}" class="text-custom-black fw-600 fs-20">{{ user_list.username }}</a></h4>
+                                            <p class="designation text-light-white">{{ user_list.profile.degree }}</p>
+                                            <p class="designation text-light-white">{{ user_list.profile.designation }}</p>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+        </div>
+    {% endfor %}
+
+    </div>
+             </div>
+
+
+</section>
+
+
+{% endblock %}

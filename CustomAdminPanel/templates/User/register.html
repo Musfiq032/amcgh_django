@@ -1,0 +1,108 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+        <!-- Start Login -->
+        <section class="section-padding bg-light-white login-register">
+            <div class="container">
+                <div class="row login-box">
+                    <div class="col-lg-6 align-self-center no-padding">
+                        <div class="form-section align-self-center">
+                            <h3 class="text-custom-black fw-400 mb-xl-30">Sign up your account</h3>
+                            <div class="square-tabs mb-2">
+                                <ul class="custom nav nav-tabs">
+                                    <li class="nav-item">
+                                        <a href="{% url 'Users:login' %}" class="nav-link">Login</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="{% url 'Users:register' %}" class="nav-link active">Register</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <form class="form-layout-1" method="post">
+                                {% csrf_token %}
+                                <div class="row">
+                                    <div class="col-12 mb-xl-30">
+                                        <div class="form-group">
+                                            <div class="icon">
+                                                <i class="fas fa-user"></i>
+                                            </div>
+                                            <label class="text-left">Username</label>
+                                            <input type="text" name="username" class="form-control" placeholder="Username" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="icon">
+                                                <i class="fas fa-user"></i>
+                                            </div>
+                                            <label class="text-left">First Name</label>
+                                            <input type="text" name="first_name" class="form-control" placeholder="First Name" required>
+                                        </div>
+                                         <div class="form-group">
+                                            <div class="icon">
+                                                <i class="fas fa-user"></i>
+                                            </div>
+                                            <label class="text-left">LAst Name</label>
+                                            <input type="text" name="last_name" class="form-control" placeholder="Last Name" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="icon">
+                                                <i class="fas fa-envelope"></i>
+                                            </div>
+                                            <label class="text-left">Email Address</label>
+                                            <input type="email" name="email" class="form-control" placeholder="Email Address" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="icon">
+                                                <i class="fas fa-unlock-alt"></i>
+                                            </div>
+                                            <label class="text-left">Password</label>
+                                            <input type="password" name="password1" class="form-control" placeholder="Password" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="icon">
+                                                <i class="fas fa-unlock-alt"></i>
+                                            </div>
+                                            <label class="text-left">Retype Password</label>
+                                            <input type="password" name="password2" class="form-control" placeholder="Retype Password" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="row align-items-center form-bottm">
+                                            <div class="col-sm-12">
+                                                <button class="btn-first btn-submit text-light-blue" type="submit">Sign Up</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 bg-color-15 align-self-center no-padding bg-img-register">
+                        <div class="info clearfix">
+                            <div class="logo-2">
+                                <a href="{% url 'Home:Home' %}">
+                                    <img src="https://via.placeholder.com/85x30" alt="logo">
+                                </a>
+                            </div>
+                            <h5 class="text-custom-white text-uppercase fw-600">Welcome to AMCGH</h5>
+                            <div class="social-list">
+                                <a href="#" class="facebook-bg">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                                <a href="#" class="twitter-bg">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                                <a href="#" class="google-bg">
+                                    <i class="fab fa-google"></i>
+                                </a>
+                                <a href="#" class="linkedin-bg">
+                                    <i class="fab fa-linkedin"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- End Login -->
+ {% endblock %}

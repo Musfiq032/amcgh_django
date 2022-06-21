@@ -1,4 +1,7 @@
 {% extends 'base.html' %}
+{% block title %}Doctors | Ahsania Mission Cancer & General Hospital{% endblock title %}
+{% block page_name %}Doctors{% endblock page_name %}
+{% block page_link %}<a href="{% url 'homepage:department-list' %}">Doctors</a>{% endblock page_link %}
 {% load static %}
 {% block content %}
 
@@ -7,7 +10,7 @@
                 <div class="section-header">
                     <div class="section-heading">
                         <h3 class="text-custom-black fw-700">Our Doctors</h3>
-                        <img src="{% static '/images/title-icon.png' %}" class="mb-xl-20" alt="img">
+                        <img src="{% static 'assets/images/title-icon.png' %}" class="mb-xl-20" alt="img">
                         <div class="section-description">
                             <p class="text-light-white">
                                 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text.
