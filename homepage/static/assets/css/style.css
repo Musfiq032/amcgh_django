@@ -1311,7 +1311,7 @@ label.custom-checkbox .checkmark:after {
 }
 .header-style-2 .mobile-navigation-style-2 .hamburger-menu .menu-btn span,
 .main-navigation-style-1.sticky .navigation .hamburger-menu .menu-btn span{
-    background-color: #fff;
+    background-color: #000;
 }
 .header-style-2 .mobile-navigation-style-2 .hamburger-menu .menu-btn span:last-child,
 .main-navigation-style-1 .navigation .hamburger-menu .menu-btn span:last-child {
@@ -1329,7 +1329,7 @@ label.custom-checkbox .checkmark:after {
     transition: 0.3s;
     position: relative;
     top: 7.4px;
-    background-color: #fff;
+    background-color: #000;
 }
 .header-style-2 .mobile-navigation-style-2 .hamburger-menu .menu-btn.active span:nth-child(2),
 .main-navigation-style-1 .navigation .hamburger-menu .menu-btn.active span:nth-child(2) {
@@ -1339,13 +1339,13 @@ label.custom-checkbox .checkmark:after {
 .main-navigation-style-1 .navigation .hamburger-menu .menu-btn.active span:last-child {
     transform: rotate(-45deg);
     transition: 0.3s;
-    background-color: #fff;
+    background-color: #000;
 }
 .style-3 .main-navigation-style-1 .navigation .hamburger-menu .menu-btn.active span{
     background-color: #000;
 }
 .style-3 .main-navigation-style-1.sticky .navigation .hamburger-menu .menu-btn.active span{
-    background-color: #fff;
+    background-color: #000;
 }
 /*navigation 2*/
 .header-style-2{
