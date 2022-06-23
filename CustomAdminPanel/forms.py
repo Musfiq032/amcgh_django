@@ -95,3 +95,19 @@ class EditDepartmentForm(forms.Form):
     department_description = forms.CharField(label="Description", widget=CKEditorWidget())
     department_image = forms.FileField(label="Department Image", max_length=50,
                                        widget=forms.FileInput(attrs={"class": "form-control"}))
+
+
+class AddServiceForm(forms.Form):
+    service_name = forms.CharField(label="Service Name", max_length=50,
+                                   widget=forms.TextInput(attrs={"class": "form-control"}))
+    service_description = forms.CharField(label="Description", widget=CKEditorWidget())
+    service_image = forms.FileField(label="Service Image", max_length=50,
+                                    widget=forms.FileInput(attrs={"class": "form-control"}))
+
+
+class EditServiceForm(forms.Form):
+    service_name = forms.CharField(label="Service Name", max_length=50,
+                                   widget=forms.TextInput(attrs={"class": "form-control"}))
+    service_description = forms.CharField(label="Description", widget=CKEditorWidget())
+    service_image = forms.FileField(label="Service Image", max_length=50,
+                                    widget=forms.FileInput(attrs={"class": "form-control"}))

@@ -103,28 +103,46 @@
                             <div class="navigation">
                                 <div class="logo">
 
-                                    <a href="index.html">
+                                    <a href="{% url 'homepage:Home' %}">
                                         <img src="{% static 'assets/images/amcghLogo-1.png' %}" class="img-fluid " alt="Logo">
 
                                     </a>
                                 </div>
                                 <div class="main-menu">
                                     <div class="mobile-logo">
-                                        <a href="index.html">
+                                        <a href="{% url 'homepage:Home' %}">
                                             <img src="{% static 'assets/images/amcghLogo-1.png' %}" class="img-fluid image-fit" alt="Logo">
                                         </a>
                                     </div>
                                     <nav>
                                         <ul class="custom">
 
-                                            <li class="menu-item">
+                                            <li class="menu-item menu-item-has-children">
                                                 <a href="#" class="text-custom-white">About Us</a>
+                                                 <ul class="custom sub-menu">
+                                                    <li class="menu-item">
+                                                        <a href="#" class="text-light-grey">Why Choose Us</a>
+                                                    </li>
+                                                 <li class="menu-item">
+                                                        <a href="#" class="text-light-grey">Mission & Vision</a>
+                                                    </li>
+                                                       <li class="menu-item">
+                                                        <a href="#" class="text-light-grey">Governing Body</a>
+                                                    </li>
+                                                       <li class="menu-item">
+                                                        <a href="#" class="text-light-grey">Management Team</a>
+                                                    </li>
+                                                       <li class="menu-item">
+                                                        <a href="#" class="text-light-grey">Background History</a>
+                                                    </li>
+
+                                                </ul>
                                             </li>
                                             <li class="menu-item menu-item-has-children">
                                                 <a href="#" class="text-custom-white">News & Events</a>
                                                 <ul class="custom sub-menu">
                                                     <li class="menu-item">
-                                                        <a href="#" class="text-light-grey">Blog</a>
+                                                        <a href="{% url 'homepage:blog' %}" class="text-light-grey">Blog</a>
                                                     </li>
                                                  <li class="menu-item">
                                                         <a href="#" class="text-light-grey">Photo Gallery</a>
@@ -133,18 +151,19 @@
                                                 </ul>
                                             </li>
                                            <li class="menu-item">
-                                                        <a href="#" class="text-custom-white">Our Doctors</a>
+                                                        <a href="{% url 'homepage:doctor-list' %}" class="text-custom-white">Our Doctors</a>
                                                     </li>
-                                            <li class="menu-item">
+                                            <li class="menu-item menu-item-has-children">
                                                         <a href="#" class="text-custom-white">Departments</a>
+
                                                     </li>
                                             <li class="menu-item">
-                                                        <a href="#" class="text-custom-white">Services</a>
+                                                        <a href="{% url 'homepage:service-list' %}" class="text-custom-white">Services</a>
                                                     </li>
 
 
                                             <li class="menu-item">
-                                                <a href="../../../Templates/contact.html" class="text-custom-white">Contact Us</a>
+                                                <a href="{% url 'homepage:contact-us' %}" class="text-custom-white">Contact Us</a>
                                             </li>
                                         </ul>
                                     </nav>
@@ -259,7 +278,7 @@
                     <div class="col-xl-6 col-lg-6">
                         <div class="section-header">
                             <div class="section-heading">
-                                <h3 class="text-custom-black fw-700">Welcome To Ahsania Mission Cancer & General Hospital</h3>
+                                <h3 class="text-custom-black fw-700">Message from the President of Governing Body</h3>
 
                                 <div class="section-description">
                                     <p class="text-light-white">

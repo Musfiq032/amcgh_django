@@ -3,9 +3,10 @@ from django.core.files.storage import FileSystemStorage
 from django.http import HttpResponseRedirect, HttpResponse
 from django.shortcuts import render
 from django.urls import reverse
-from CustomAdminPanel.forms import AddDoctorForm, EditDoctorForm, AddDepartmentForm, EditDepartmentForm
+from CustomAdminPanel.forms import AddDoctorForm, EditDoctorForm, AddDepartmentForm, EditDepartmentForm, AddServiceForm, \
+    EditServiceForm
 
-from CustomAdminPanel.models import CustomUser, Doctors, Departments
+from CustomAdminPanel.models import CustomUser, Doctors, Departments, Service
 
 
 def admin_home(request):
@@ -77,30 +78,38 @@ def add_department_save(request):
             return render(request, "hod_template/add_department_template.html", {"form": form})
 
 
-# def add_department_save(request):
-#     if request.method != "POST":
-#         return HttpResponse("Method Not Allowed")
-#     else:
-#         department_name = request.POST.get("department_name")
-#         department_short_description = request.POST.get("department_short_description")
-#         department_description = request.POST.get("department_description")
-#
-#         department_image = request.FILES.get('department_image')
-#         fs = FileSystemStorage()
-#         filename = fs.save(department_image.name, department_image)
-#         department_image_url = fs.url(filename)
-#
-#         try:
-#             department_model = Departments(department_name=department_name,
-#                                            department_short_description=department_short_description,
-#                                            department_description=department_description)
-#             department_model.department_image = department_image_url
-#             department_model.save()
-#             messages.success(request, "Successfully Added Department")
-#             return HttpResponseRedirect(reverse("add_department"))
-#         except:
-#             messages.error(request, "Failed To Add Department")
-#             return HttpResponseRedirect(reverse("add_department_save"))
+def add_service(request):
+    form = AddServiceForm()
+    return render(request, "hod_template/add_service_template.html", {"form": form})
+
+
+def add_service_save(request):
+    if request.method != "POST":
+        return HttpResponse("Method Not Allowed")
+    else:
+        form = AddServiceForm(request.POST, request.FILES)
+        if form.is_valid():
+            service_name = form.cleaned_data["service_name"]
+            service_description = form.cleaned_data["service_description"]
+
+            service_image = request.FILES['service_image']
+            fs = FileSystemStorage()
+            filename = fs.save(service_image.name, service_image)
+            service_image_url = fs.url(filename)
+
+            try:
+                service_model = Service(service_name=service_name,
+                                        service_description=service_description)
+                service_model.service_image = service_image_url
+                service_model.save()
+                messages.success(request, "Successfully Added Service")
+                return HttpResponseRedirect(reverse("add_service"))
+            except:
+                messages.error(request, "Failed to Add Service")
+                return HttpResponseRedirect(reverse("add_service"))
+        else:
+            form = AddServiceForm(request.POST)
+            return render(request, "hod_template/add_service_template.html", {"form": form})
 
 
 def add_doctor(request):
@@ -199,11 +208,11 @@ def manage_doctor(request):
     return render(request, 'hod_template/manage_doctor_template.html', {'doctor': doctor})
 
 
-# def manage_course(request):
-#     course = Course.objects.all()
-#     return render(request, 'hod_template/manage_course_template.html', {'course': course})
-#
-#
+def manage_service(request):
+    service = Service.objects.all()
+    return render(request, 'hod_template/manage_service_template.html', {'service': service})
+
+
 def manage_department(request):
     department = Departments.objects.all()
     return render(request, 'hod_template/manage_department_template.html', {'department': department})

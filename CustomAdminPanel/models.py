@@ -46,6 +46,16 @@ class Doctors(models.Model):
     objects = models.Manager()
 
 
+class Service(models.Model):
+    id = models.AutoField(primary_key=True)
+    service_name = models.CharField(max_length=255)
+    service_description = RichTextField(blank=True, null=True)
+    service_image = models.FileField(upload_to='service')
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now_add=True)
+    objects = models.Manager()
+
+
 @receiver(post_save, sender=CustomUser)
 def create_user_profile(sender, instance, created, **kwargs):
     if created:
