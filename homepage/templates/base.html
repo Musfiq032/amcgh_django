@@ -115,34 +115,53 @@
             </div>
             <!-- End Topbar -->
             <!-- Start Navigation -->
-            <div class="main-navigation-style-1">
-                <div class="container">
+       <div class="main-navigation-style-1">
+                <div class="container" style="margin-right: auto;">
                     <div class="row">
                         <div class="col-12">
                             <div class="navigation">
                                 <div class="logo">
+
                                     <a href="{% url 'homepage:Home' %}">
-                                        <img src="https://via.placeholder.com/152x42" class="img-fluid " alt="Logo">
+                                        <img src="{% static 'assets/images/amcghLogo-1.png' %}" class="img-fluid " alt="Logo">
 
                                     </a>
                                 </div>
                                 <div class="main-menu">
                                     <div class="mobile-logo">
                                         <a href="{% url 'homepage:Home' %}">
-                                            <img src="https://via.placeholder.com/152x42" class="img-fluid image-fit" alt="Logo">
+                                            <img src="{% static 'assets/images/amcghLogo-1.png' %}" class="img-fluid image-fit" alt="Logo">
                                         </a>
                                     </div>
                                     <nav>
                                         <ul class="custom">
 
-                                            <li class="menu-item">
-                                                <a href="{% url 'homepage:about' %}" class="text-custom-white">About Us</a>
+                                            <li class="menu-item menu-item-has-children">
+                                                <a href="#" class="text-custom-white">About Us</a>
+                                                 <ul class="custom sub-menu">
+                                                    <li class="menu-item">
+                                                        <a href="#" class="text-light-grey">Why Choose Us</a>
+                                                    </li>
+                                                 <li class="menu-item">
+                                                        <a href="#" class="text-light-grey">Mission & Vision</a>
+                                                    </li>
+                                                       <li class="menu-item">
+                                                        <a href="#" class="text-light-grey">Governing Body</a>
+                                                    </li>
+                                                       <li class="menu-item">
+                                                        <a href="#" class="text-light-grey">Management Team</a>
+                                                    </li>
+                                                       <li class="menu-item">
+                                                        <a href="#" class="text-light-grey">Background History</a>
+                                                    </li>
+
+                                                </ul>
                                             </li>
                                             <li class="menu-item menu-item-has-children">
                                                 <a href="#" class="text-custom-white">News & Events</a>
                                                 <ul class="custom sub-menu">
                                                     <li class="menu-item">
-                                                        <a href="{% url 'homepage:news' %}" class="text-light-grey">Blog</a>
+                                                        <a href="{% url 'homepage:blog' %}" class="text-light-grey">Blog</a>
                                                     </li>
                                                  <li class="menu-item">
                                                         <a href="#" class="text-light-grey">Photo Gallery</a>
@@ -153,27 +172,17 @@
                                            <li class="menu-item">
                                                         <a href="{% url 'homepage:doctor-list' %}" class="text-custom-white">Our Doctors</a>
                                                     </li>
-                                            <li class="menu-item">
-                                                 <li class="menu-item menu-item-has-children">
-                                                <a href="#" class="text-custom-white">Department</a>
-                                                <ul class="custom sub-menu">
-                                                    <li class="menu-item">
-                                                        <a href="{% url 'homepage:department-list' %}" class="text-light-grey">Department With Sidebar</a>
-                                                    </li>
-                                                 <li class="menu-item">
-                                                        <a href="{% url 'homepage:department-list-2' %}" class="text-light-grey">Department With No Sidebar</a>
-                                                    </li>
+                                            <li class="menu-item menu-item-has-children">
+                                                        <a href="#" class="text-custom-white">Departments</a>
 
-                                                </ul>
-                                            </li>
-
+                                                    </li>
                                             <li class="menu-item">
                                                         <a href="{% url 'homepage:service-list' %}" class="text-custom-white">Services</a>
                                                     </li>
 
 
                                             <li class="menu-item">
-                                                <a href="#" class="text-custom-white">Contact Us</a>
+                                                <a href="{% url 'homepage:contact-us' %}" class="text-custom-white">Contact Us</a>
                                             </li>
                                         </ul>
                                     </nav>

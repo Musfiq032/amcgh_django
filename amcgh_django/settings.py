@@ -136,6 +136,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 AUTH_USER_MODEL = "CustomAdminPanel.CustomUser"
+AUTHENTICATION_BACKENDS = ['CustomAdminPanel.EmailBackEnd.EmailBackEnd']
+
 
 CKEDITOR_BASEPATH = "/static/ckeditor/ckeditor/"
 CKEDITOR_CONFIGS = {
