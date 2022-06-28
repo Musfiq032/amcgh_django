@@ -191,6 +191,10 @@ def service_list_view(request):
     return render(request, "Services/service.html", context)
 
 
+def gb_list_view(request):
+    return render(request, "governing_body.html")
+
+
 # def dynamic_lookup_service_view(request, id):
 #     obj = service.objects.get(id=id)
 #     ser_list = service.objects.all()

@@ -2,7 +2,7 @@ from django.contrib import admin
 
 from django.contrib.auth.admin import UserAdmin
 
-from CustomAdminPanel.models import CustomUser, Doctors, Departments, Service
+from CustomAdminPanel.models import CustomUser, Doctors, Departments, Service, ManagementTeam
 
 
 # Register your models here.
@@ -14,4 +14,5 @@ admin.site.register(CustomUser, UserModel)
 admin.site.register(Doctors)
 admin.site.register(Departments)
 admin.site.register(Service)
+admin.site.register(ManagementTeam)
 

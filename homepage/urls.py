@@ -2,7 +2,7 @@ from django.conf.urls.static import static
 
 from django.conf import settings
 from homepage.views import (home_view, blog_view, about_us_view,
-                            service_list_view,doctor_list_view, contact_view, doctor_details)
+                            service_list_view,doctor_list_view, contact_view, doctor_details,gb_list_view)
 from django.urls import path
 from . import views
 
@@ -27,7 +27,8 @@ urlpatterns = [
                   # path('department/<int:id>/', dynamic_lookup_view_dept, name='department-detail'),
                   # path('department-list/', department_list_view, name='department-list'),
                   # path('department-list-2/', department_list_view2, name='department-list-2'),
-                  path('doctor_details/<str:doctor_id>', doctor_details, name="doctor_details")
+                  path('doctor_details/<str:doctor_id>', doctor_details, name="doctor_details"),
+                  path('gb_list/', gb_list_view, name="gb_list"),
 
               ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) + static(settings.STATIC_URL,
                                                                                          document_root=settings.STATIC_ROOT)

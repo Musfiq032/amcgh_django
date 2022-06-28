@@ -4,9 +4,9 @@ from django.http import HttpResponseRedirect, HttpResponse
 from django.shortcuts import render
 from django.urls import reverse
 from CustomAdminPanel.forms import AddDoctorForm, EditDoctorForm, AddDepartmentForm, EditDepartmentForm, AddServiceForm, \
-    EditServiceForm
+    EditMtForm, EditServiceForm, AddMtForm
 
-from CustomAdminPanel.models import CustomUser, Doctors, Departments, Service
+from CustomAdminPanel.models import CustomUser, Doctors, Departments, Service, ManagementTeam
 
 
 def admin_home(request):
@@ -43,8 +43,6 @@ def admin_home(request):
 def add_department(request):
     form = AddDepartmentForm()
     return render(request, "hod_template/add_department_template.html", {"form": form})
-
-    # return render(request, "hod_template/add_department_template.html")
 
 
 def add_department_save(request):
@@ -110,6 +108,42 @@ def add_service_save(request):
         else:
             form = AddServiceForm(request.POST)
             return render(request, "hod_template/add_service_template.html", {"form": form})
+
+
+def add_mt(request):
+    form = AddMtForm()
+    return render(request, "hod_template/add_mt_template.html", {"form": form})
+
+
+def add_mt_save(request):
+    if request.method != "POST":
+        return HttpResponse("Method Not Allowed")
+    else:
+        form = AddMtForm(request.POST, request.FILES)
+        if form.is_valid():
+            member_name = form.cleaned_data["member_name"]
+            designation = form.cleaned_data["designation"]
+            institution = form.cleaned_data['institution']
+
+            profile_pic = request.FILES['profile_pic']
+            fs = FileSystemStorage()
+            filename = fs.save(profile_pic.name, profile_pic)
+            profile_pic_url = fs.url(filename)
+
+            try:
+                mt_model = ManagementTeam(member_name=member_name,
+                                          designation=designation,
+                                          institution=institution)
+                mt_model.profile_pic = profile_pic_url
+                mt_model.save()
+                messages.success(request, "Successfully Added Member")
+                return HttpResponseRedirect(reverse("add_mt"))
+            except:
+                messages.error(request, "Failed to Add Member")
+                return HttpResponseRedirect(reverse("add_mt"))
+        else:
+            form = AddServiceForm(request.POST)
+            return render(request, "hod_template/add_mt_template.html", {"form": form})
 
 
 def add_doctor(request):
@@ -218,40 +252,60 @@ def manage_department(request):
     return render(request, 'hod_template/manage_department_template.html', {'department': department})
 
 
-#
-#
-# def edit_staff(request, staff_id):
-#     staff = Staffs.objects.get(admin=staff_id)
-#     return render(request, "hod_template/edit_staff_template.html", {"staff": staff, "id": staff_id})
-#
-#
-# def edit_staff_save(request):
-#     if request.method != "POST":
-#         return HttpResponse("<h2>Method Not Allowed</h2>")
-#     else:
-#         staff_id = request.POST.get("staff_id")
-#         first_name = request.POST.get("first_name")
-#         last_name = request.POST.get("last_name")
-#         email = request.POST.get("email")
-#         username = request.POST.get("username")
-#         address = request.POST.get("address")
-#
-#         try:
-#             user = CustomUser.objects.get(id=staff_id)
-#             user.first_name = first_name
-#             user.last_name = last_name
-#             user.email = email
-#             user.username = username
-#             user.save()
-#
-#             staff_model = Staffs.objects.get(admin=staff_id)
-#             staff_model.address = address
-#             staff_model.save()
-#             messages.success(request, "Successfully Edited Staff")
-#             return HttpResponseRedirect(reverse("edit_staff", kwargs={"staff_id": staff_id}))
-#         except:
-#             messages.error(request, "Failed to Edit Staff")
-#             return HttpResponseRedirect(reverse("edit_staff", kwargs={"staff_id": staff_id}))
+def manage_mt(request):
+    mt = ManagementTeam.objects.all()
+    return render(request, 'hod_template/manage_mt_template.html', {'mt': mt})
+
+
+def edit_mt(request, mt_id):
+    request.session['mt_id'] = mt_id
+    mt = ManagementTeam.objects.get(id=mt_id)
+    form = EditMtForm()
+    form.fields['member_name'].initial = mt.member_name
+    form.fields['institution'].initial = mt.institution
+    form.fields['designation'].initial = mt.designation
+    form.fields['profile_pic'].initial = mt.profile_pic
+
+    return render(request, "hod_template/edit_mt_template.html",
+                  {"form": form, "id": mt_id, "member_name": mt.member_name})
+
+
+def edit_mt_save(request):
+    if request.method != "POST":
+        return HttpResponse("<h2>Method Not Allowed</h2>")
+    else:
+        mt_id = request.session.get('mt_id')
+        form = EditMtForm(request.POST, request.FILES)
+        if form.is_valid():
+            member_name = form.cleaned_data["member_name"]
+            institution = form.cleaned_data["institution"]
+            designation = form.cleaned_data["designation"]
+
+            if request.FILES.get('department_image', False):
+                profile_pic = request.FILES['profile_pic']
+                fs = FileSystemStorage()
+                filename = fs.save(profile_pic.name, profile_pic)
+                profile_pic_url = fs.url(filename)
+            else:
+                profile_pic_url = None
+            try:
+                mt = ManagementTeam.objects.get(id=mt_id)
+                mt.member_name = member_name
+                mt.institution = institution
+                mt.designation = designation
+                if profile_pic_url is not None:
+                    mt.profile_pic = profile_pic_url
+                mt.save()
+                messages.success(request, "Successfully Edited Member Details")
+                return HttpResponseRedirect(reverse("edit_mt", kwargs={"mt_id": mt_id}))
+            except:
+                messages.error(request, "Failed to Edit Member Details")
+                return HttpResponseRedirect(reverse("edit_mt", kwargs={"mt_id": mt_id}))
+        else:
+            form = EditMtForm(request.POST)
+            mt = ManagementTeam.objects.get(id=mt_id)
+            return render(request, "hod_template/edit_mt_template.html",
+                          {"form": form, "id": mt_id, "mt": mt})
 
 
 def edit_doctor(request, doctor_id):

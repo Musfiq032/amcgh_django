@@ -46,6 +46,15 @@ class Doctors(models.Model):
     objects = models.Manager()
 
 
+class ManagementTeam(models.Model):
+    id = models.AutoField(primary_key=True)
+    member_name = models.CharField(max_length=255)
+    designation = models.CharField(max_length=255)
+    institution = models.CharField(max_length=255)
+    profile_pic = models.FileField()
+    objects = models.Manager()
+
+
 class Service(models.Model):
     id = models.AutoField(primary_key=True)
     service_name = models.CharField(max_length=255)
