@@ -133,3 +133,21 @@ class EditMtForm(forms.Form):
                                   widget=forms.TextInput(attrs={"class": "form-control"}))
     profile_pic = forms.FileField(label="Profile Picture", max_length=50,
                                   widget=forms.FileInput(attrs={"class": "form-control"}))
+
+
+class AddGBForm(forms.Form):
+    member_name = forms.CharField(label="Member Name", max_length=50,
+                                  widget=forms.TextInput(attrs={"class": "form-control"}))
+    institution = forms.CharField(label="Institution Name", max_length=50,
+                                  widget=forms.TextInput(attrs={"class": "form-control"}))
+    designation = forms.CharField(label="Designation", max_length=50,
+                                  widget=forms.TextInput(attrs={"class": "form-control"}))
+
+
+class EditGBForm(forms.Form):
+    member_name = forms.CharField(label="Member Name", max_length=50,
+                                  widget=forms.TextInput(attrs={"class": "form-control"}))
+    institution = forms.CharField(label="Institution Name", max_length=50,
+                                  widget=forms.TextInput(attrs={"class": "form-control"}))
+    designation = forms.CharField(label="Designation", max_length=50,
+                                  widget=forms.TextInput(attrs={"class": "form-control"}))

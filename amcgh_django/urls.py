@@ -37,23 +37,25 @@ urlpatterns = [
                   path('add_doctor_save', HODview.add_doctor_save, name="add_doctor_save"),
                   path('add_mt', HODview.add_mt, name="add_mt"),
                   path('add_mt_save', HODview.add_mt_save, name="add_mt_save"),
+                  path('add_gb', HODview.add_gb, name="add_gb"),
+                  path('add_gb_save', HODview.add_gb_save, name="add_gb_save"),
+
                   path('manage_doctor', HODview.manage_doctor, name="manage_doctor"),
                   path('manage_service', HODview.manage_service, name="manage_service"),
                   path('manage_department', HODview.manage_department, name="manage_department"),
                   path('manage_mt', HODview.manage_mt, name="manage_mt"),
+                  path('manage_gb', HODview.manage_gb, name="manage_gb"),
+
+
                   path('edit_mt/<str:mt_id>', HODview.edit_mt, name="edit_mt"),
                   path('edit_mt_save', HODview.edit_mt_save, name="edit_mt_save"),
-
-                  # path('edit_staff/<str:staff_id>', HODview.edit_staff, name="edit_staff"),
-                  # path('edit_staff_save', HODview.edit_staff_save, name="edit_staff_save"),
+                  path('edit_gb/<str:gb_id>', HODview.edit_gb, name="edit_gb"),
+                  path('edit_gb_save', HODview.edit_gb_save, name="edit_gb_save"),
                   path('edit_doctor/<str:doctor_id>', HODview.edit_doctor, name="edit_doctor"),
                   path('edit_doctor_save', HODview.edit_doctor_save, name="edit_doctor_save"),
                   path('edit_department/<str:department_id>', HODview.edit_department, name="edit_department"),
                   path('edit_department_save', HODview.edit_department_save, name="edit_department_save"),
-                  # path('edit_course/<str:course_id>', HODview.edit_course, name="edit_course"),
-                  # path('edit_course_save', HODview.edit_course_save, name="edit_course_save"),
-                  # path('add_session_year', HODview.add_session_year, name="add_session_year"),
-                  # path('add_session_year_save', HODview.add_session_year_save, name="add_session_year_save"),
+
                   # # #     Staff URL Path
                   # path('staff_home', Staffviews.staff_home, name="staff_home"),
                   # path('staff_take_attendence', Staffviews.staff_take_attendence, name="staff_take_attendence"),

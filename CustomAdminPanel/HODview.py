@@ -4,9 +4,9 @@ from django.http import HttpResponseRedirect, HttpResponse
 from django.shortcuts import render
 from django.urls import reverse
 from CustomAdminPanel.forms import AddDoctorForm, EditDoctorForm, AddDepartmentForm, EditDepartmentForm, AddServiceForm, \
-    EditMtForm, EditServiceForm, AddMtForm
+    EditMtForm, EditServiceForm, AddMtForm, AddGBForm, EditGBForm
 
-from CustomAdminPanel.models import CustomUser, Doctors, Departments, Service, ManagementTeam
+from CustomAdminPanel.models import CustomUser, Doctors, Departments, Service, ManagementTeam, GoverningBody
 
 
 def admin_home(request):
@@ -146,6 +146,36 @@ def add_mt_save(request):
             return render(request, "hod_template/add_mt_template.html", {"form": form})
 
 
+def add_gb(request):
+    form = AddGBForm()
+    return render(request, "hod_template/add_gb_template.html", {"form": form})
+
+
+def add_gb_save(request):
+    if request.method != "POST":
+        return HttpResponse("Method Not Allowed")
+    else:
+        form = AddGBForm(request.POST, request.FILES)
+        if form.is_valid():
+            member_name = form.cleaned_data["member_name"]
+            designation = form.cleaned_data["designation"]
+            institution = form.cleaned_data['institution']
+
+            try:
+                gb_model = GoverningBody(member_name=member_name,
+                                          designation=designation,
+                                          institution=institution)
+                gb_model.save()
+                messages.success(request, "Successfully Added Member")
+                return HttpResponseRedirect(reverse("add_gb"))
+            except:
+                messages.error(request, "Failed to Add Member")
+                return HttpResponseRedirect(reverse("add_gb"))
+        else:
+            form = AddGBForm(request.POST)
+            return render(request, "hod_template/add_gb_template.html", {"form": form})
+
+
 def add_doctor(request):
     form = AddDoctorForm()
     return render(request, "hod_template/add_doctor_template.html", {"form": form})
@@ -257,6 +287,11 @@ def manage_mt(request):
     return render(request, 'hod_template/manage_mt_template.html', {'mt': mt})
 
 
+def manage_gb(request):
+    gb = GoverningBody.objects.all()
+    return render(request, 'hod_template/manage_gb_template.html', {'gb': gb})
+
+
 def edit_mt(request, mt_id):
     request.session['mt_id'] = mt_id
     mt = ManagementTeam.objects.get(id=mt_id)
@@ -306,6 +341,47 @@ def edit_mt_save(request):
             mt = ManagementTeam.objects.get(id=mt_id)
             return render(request, "hod_template/edit_mt_template.html",
                           {"form": form, "id": mt_id, "mt": mt})
+
+
+def edit_gb(request, gb_id):
+    request.session['gb_id'] = gb_id
+    gb = ManagementTeam.objects.get(id=gb_id)
+    form = EditGBForm()
+    form.fields['member_name'].initial = gb.member_name
+    form.fields['institution'].initial = gb.institution
+    form.fields['designation'].initial = gb.designation
+
+    return render(request, "hod_template/edit_gb_template.html",
+                  {"form": form, "id": gb_id, "member_name": gb.member_name})
+
+
+def edit_gb_save(request):
+    if request.method != "POST":
+        return HttpResponse("<h2>Method Not Allowed</h2>")
+    else:
+        gb_id = request.session.get('gb_id')
+        form = EditGBForm(request.POST, request.FILES)
+        if form.is_valid():
+            member_name = form.cleaned_data["member_name"]
+            institution = form.cleaned_data["institution"]
+            designation = form.cleaned_data["designation"]
+
+            try:
+                gb = ManagementTeam.objects.get(id=gb_id)
+                gb.member_name = member_name
+                gb.institution = institution
+                gb.designation = designation
+                gb.save()
+                messages.success(request, "Successfully Edited Member Details")
+                return HttpResponseRedirect(reverse("edit_gb", kwargs={"gb_id": gb_id}))
+            except:
+                messages.error(request, "Failed to Edit Member Details")
+                return HttpResponseRedirect(reverse("edit_gb", kwargs={"gb_id": gb_id}))
+        else:
+            form = EditMtForm(request.POST)
+            gb = ManagementTeam.objects.get(id=gb_id)
+            return render(request, "hod_template/edit_gb_template.html",
+                          {"form": form, "id": gb_id, "gb": gb})
 
 
 def edit_doctor(request, doctor_id):

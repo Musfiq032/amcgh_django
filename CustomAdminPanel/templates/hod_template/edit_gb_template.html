@@ -1,6 +1,6 @@
 {% extends 'hod_template/base_template.html' %}
 {% block page_title %}
-Edit Management Team
+Edit Governing Body
 {% endblock page_title %}
 {% block main_content %}
     <!-- Main content -->
@@ -11,11 +11,11 @@ Edit Management Team
             <!-- general form elements -->
             <div class="card card-primary">
               <div class="card-header">
-                <h3 class="card-title">Edit Management Team</h3>
+                <h3 class="card-title">Edit Governing Body</h3>
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-                {% url 'edit_mt_save' as action_path %}
+                {% url 'edit_gb_save' as action_path %}
                 {% include 'hod_template/form_template.html' with messages=messages form=form action_path=action_path button_text="Edit Member" %}
             </div>
             <!-- /.card -->

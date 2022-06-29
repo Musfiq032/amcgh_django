@@ -125,6 +125,24 @@
               </p>
             </a>
           </li>
+                 <li class="nav-item">
+
+            <a href="{% url 'add_gb' %}" class="nav-link {% if request.path == add_gb %} active {% endif %}">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+                Add Governing Body Members
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+
+            <a href="{% url 'manage_gb' %}" class="nav-link {% if request.path == manage_gb %} active {% endif %} {% if request.path == edit_gb %} active {% endif %} ">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+                Manage Governing Body Members
+              </p>
+            </a>
+          </li>
 {#           <li class="nav-item">#}
 {#             <a href="#" class="nav-link">#}
 {#              <i class="nav-icon fas fa-th"></i>#}

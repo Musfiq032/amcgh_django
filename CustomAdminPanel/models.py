@@ -55,6 +55,14 @@ class ManagementTeam(models.Model):
     objects = models.Manager()
 
 
+class GoverningBody(models.Model):
+    id = models.AutoField(primary_key=True)
+    member_name = models.CharField(max_length=255)
+    designation = models.CharField(max_length=255)
+    institution = models.CharField(max_length=255)
+    objects = models.Manager()
+
+
 class Service(models.Model):
     id = models.AutoField(primary_key=True)
     service_name = models.CharField(max_length=255)
