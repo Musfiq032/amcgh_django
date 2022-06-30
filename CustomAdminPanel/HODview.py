@@ -163,8 +163,8 @@ def add_gb_save(request):
 
             try:
                 gb_model = GoverningBody(member_name=member_name,
-                                          designation=designation,
-                                          institution=institution)
+                                         designation=designation,
+                                         institution=institution)
                 gb_model.save()
                 messages.success(request, "Successfully Added Member")
                 return HttpResponseRedirect(reverse("add_gb"))
