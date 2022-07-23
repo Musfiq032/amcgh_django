@@ -1,8 +1,14 @@
 from django.conf.urls.static import static
 
 from django.conf import settings
-from homepage.views import (home_view, blog_view, about_us_view,
-                            service_list_view,doctor_list_view, contact_view, doctor_details,gb_list_view)
+from homepage.views import (home_view,
+                            blog_view,
+                            about_us_view,
+                            service_list_view,
+                            doctor_list_view,
+                            contact_view,
+                            doctor_details,
+                            gb_list_view)
 from django.urls import path
 from . import views
 
@@ -12,7 +18,7 @@ urlpatterns = [
                   # path('department_view/',department_view, name='department'),
                   # path('service/',service_view,name='service'),
                   # path('appointment/', appointment_view, name= 'appointment'),
-                  path('contact/',contact_view, name= 'contact-us'),
+                  path('contact/', contact_view, name='contact-us'),
                   path('blog/', blog_view, name='blog'),
                   path('about/', about_us_view, name='about'),
                   # path('login_user/', views.user_login, name='login'),
