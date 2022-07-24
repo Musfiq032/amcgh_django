@@ -8,7 +8,8 @@ from homepage.views import (home_view,
                             doctor_list_view,
                             contact_view,
                             doctor_details,
-                            gb_list_view)
+                            gb_list_view,
+                            department_details)
 from django.urls import path
 from . import views
 
@@ -30,7 +31,7 @@ urlpatterns = [
                   # path('<int:id>/', views.dynamic_lookup_view, name='news-details'),
                   # path('<int:id>/', dynamic_lookup_view_doc, name='doctor-detail'),
                   path('doctor-list/', doctor_list_view, name='doctor-list'),
-                  # path('department/<int:id>/', dynamic_lookup_view_dept, name='department-detail'),
+                  path('department_details/<str:department_id>/', department_details, name='department_details'),
                   # path('department-list/', department_list_view, name='department-list'),
                   # path('department-list-2/', department_list_view2, name='department-list-2'),
                   path('doctor_details/<str:doctor_id>', doctor_details, name="doctor_details"),

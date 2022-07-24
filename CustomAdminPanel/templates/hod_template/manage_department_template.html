@@ -31,8 +31,6 @@ Manage Departments
                     <tr>
                       <th>ID</th>
                       <th>Department Name</th>
-                      <th>Department Short Description</th>
-                      <th>Department Description</th>
                       <th>Department Image</th>
                       <th>Action</th>
                     </tr>
@@ -42,8 +40,6 @@ Manage Departments
                     <tr>
                       <td>{{ instance.id }}</td>
                       <td>{{ instance.department_name }}</td>
-                      <td>{{ instance.department_short_description }}</td>
-                      <td>{{ instance.department_description }}</td>
                       <td><img src="{{ instance.department_image }}" style="width: 50px"></td>
                       <td><a href="/edit_department/{{ instance.id }}" class="btn btn-success">Edit</a></td>
                     </tr>

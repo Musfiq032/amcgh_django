@@ -175,7 +175,14 @@
 
                                             <li class="menu-item menu-item-has-children">
                                                         <a href="#" class="text-custom-white">Departments</a>
+                                                <ul class="custom sub-menu">
+                                                    {% for departments in department_menu %}
+                                                    <li class="menu-item">
+                                                        <a href="department_details/{{ departments.id }}?departments={{ departments.department_name }}" class="text-light-grey">{{ departments.department_name }}</a>
+                                                    </li>
 
+                                                    {% endfor %}
+                                                </ul>
                                                     </li>
 
                                             <li class="menu-item">

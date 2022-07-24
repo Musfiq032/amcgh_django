@@ -8,13 +8,15 @@ from django.db.models import Q
 
 
 def home_view(request):
+    department_menu = Departments.objects.all()
     department_home_view = Departments.objects.all()[:2]
     service_home_view = Service.objects.all()[:8]
     doctor_list = Doctors.objects.all()
     context = {
         'service_list': service_home_view,
         'doctor_list': doctor_list,
-        'department_list': department_home_view
+        'department_list': department_home_view,
+        'department_menu': department_menu
     }
     return render(request, 'homepage/index.html', context)
 
@@ -56,6 +58,27 @@ def doctor_details(request, doctor_id):
         "username": doctor.admin.username
     }
     return render(request, "Doctors/doctor-single.html", context)
+
+
+def department_details(request, department_id):
+
+    request.session['department_id'] = department_id
+    department = Departments.objects.get(id=department_id)
+    doctor_list = Doctors.objects.all()
+    department_list = Departments.objects.all()
+    departments = request.GET.get('departments')
+    if departments is None:
+        pass
+    else:
+        doctor_list = Doctors.objects.filter(department_id__department_name__icontains=departments)
+
+    context = {
+        'doctor_list': doctor_list,
+        'department': department,
+        'department_list': department_list,
+        "id": department_id,
+    }
+    return render(request, "Department/department-single.html", context)
 
 
 def is_valid_queryparam(param):
