@@ -23,27 +23,33 @@ class AdminHOD(models.Model):
 class Departments(models.Model):
     id = models.AutoField(primary_key=True)
     department_name = models.CharField(max_length=255)
-    department_short_description = models.CharField(max_length=255)
-    department_description = RichTextField(blank=True, null=True)
-    department_image = models.FileField(upload_to='department')
+    department_short_description = models.TextField(null=False,blank=False)
+    department_description = RichTextField(blank=False, null=False,default='Nothing')
+    department_image = models.ImageField(upload_to='Department/')
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now_add=True)
     objects = models.Manager()
+
+    def get_absolute_url(self):
+        return reverse("homepage:department_details", kwargs={"id": self.id})
 
 
 class Doctors(models.Model):
     id = models.AutoField(primary_key=True)
     admin = models.OneToOneField(CustomUser, on_delete=models.CASCADE)
-    designation = models.CharField(max_length=255)
+    designation = models.TextField(null=False)
     department_id = models.ForeignKey(Departments, on_delete=models.CASCADE)
     degree = models.CharField(max_length=255)
     gender = models.CharField(max_length=255)
-    profile_pic = models.FileField()
+    profile_pic = models.FileField(upload_to='Doctor_Profile_Pic/')
     address = models.TextField()
     research_publication = RichTextField(blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now_add=True)
     objects = models.Manager()
+
+    def get_absolute_url(self):
+        return reverse("homepage:doctor_details", kwargs={"id": self.admin.id})
 
 
 class ManagementTeam(models.Model):
@@ -51,7 +57,7 @@ class ManagementTeam(models.Model):
     member_name = models.CharField(max_length=255)
     designation = models.CharField(max_length=255)
     institution = models.CharField(max_length=255)
-    profile_pic = models.FileField()
+    profile_pic = models.ImageField(default='default.png')
     objects = models.Manager()
 
 

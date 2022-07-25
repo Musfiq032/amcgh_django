@@ -38,7 +38,7 @@
                                 <img src="{{ doc_list.profile_pic}}" class="full-width" alt="image">
                             </div>
                             <div class="doctor-content">
-                                <h6><a href="{{  }}" class="text-custom-black fw-700">{{ doc_list.admin.first_name }}{{ doc_list.admin.last_name }}</a></h6>
+                                <h6><a href="{{ doc_list.get_absolute_url }}" class="text-custom-black fw-700">{{ doc_list.admin.first_name }}{{ doc_list.admin.last_name }}</a></h6>
                                 <p class="text-light-white">{{ doc_list.designation }}</p>
                                 <ul class="custom">
                                   <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>

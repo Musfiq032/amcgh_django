@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% block title %}Governing Body | Ahsania Mission Cancer & General Hospital{% endblock title %}
 {% block page_name %}Governing Body{% endblock page_name %}
-{% block page_link %}<a href="{% url 'homepage:gb_list' %}">Governing Body</a>{% endblock page_link %}
+{% block page_link %}<a href="{% url 'homepage:governing-body' %}">Governing Body</a>{% endblock page_link %}
 {% load static %}
 {% block content %}
 
@@ -34,14 +34,15 @@
 {#                    </tr>#}
                 </thead>
                 <tbody>
+                {% for gb in gb %}
                     <tr>
-                        <td> Michael Holz</td>
-                        <td>04/10/2013</td>
-                        <td>Admin</td>
-                        <td>Active</td>
+                        <td>{{ gb.member_name }}</td>
+                        <td>{{ gb.institution }}</td>
+                        <td>{{ gb.designation }}</td>
+
 
                     </tr>
-
+                {% endfor %}
                 </tbody>
             </table>
 

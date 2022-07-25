@@ -73,8 +73,6 @@ class EditDoctorForm(forms.Form):
                                    widget=forms.Select(attrs={"class": "form-control"}))
     sex = forms.ChoiceField(label="Sex", choices=gender_choice, widget=forms.Select(attrs={"class": "form-control"}))
     degree = forms.CharField(label="Degree", widget=forms.TextInput(attrs={"class": "form-control "}))
-    profile_pic = forms.FileField(label="Profile Pic", max_length=50,
-                                  widget=forms.FileInput(attrs={"class": "form-control"}))
 
 
 class AddDepartmentForm(forms.Form):
@@ -83,7 +81,7 @@ class AddDepartmentForm(forms.Form):
     department_short_description = forms.CharField(label="Short Description", max_length=200,
                                                    widget=forms.TextInput(attrs={"class": "form-control"}))
     department_description = forms.CharField(label="Description", widget=CKEditorWidget())
-    department_image = forms.FileField(label="Department Image", max_length=50,
+    department_image = forms.ImageField(label="Department Image", max_length=50,
                                        widget=forms.FileInput(attrs={"class": "form-control"}))
 
 
@@ -93,8 +91,7 @@ class EditDepartmentForm(forms.Form):
     department_short_description = forms.CharField(label="Short Description", max_length=200,
                                                    widget=forms.TextInput(attrs={"class": "form-control"}))
     department_description = forms.CharField(label="Description", widget=CKEditorWidget())
-    department_image = forms.FileField(label="Department Image", max_length=50,
-                                       widget=forms.FileInput(attrs={"class": "form-control"}))
+
 
 
 class AddServiceForm(forms.Form):
@@ -109,8 +106,7 @@ class EditServiceForm(forms.Form):
     service_name = forms.CharField(label="Service Name", max_length=50,
                                    widget=forms.TextInput(attrs={"class": "form-control"}))
     service_description = forms.CharField(label="Description", widget=CKEditorWidget())
-    service_image = forms.FileField(label="Service Image", max_length=50,
-                                    widget=forms.FileInput(attrs={"class": "form-control"}))
+
 
 
 class AddMtForm(forms.Form):
@@ -120,7 +116,7 @@ class AddMtForm(forms.Form):
                                   widget=forms.TextInput(attrs={"class": "form-control"}))
     designation = forms.CharField(label="Designation", max_length=50,
                                   widget=forms.TextInput(attrs={"class": "form-control"}))
-    profile_pic = forms.FileField(label="Profile Picture", max_length=50,
+    profile_pic = forms.ImageField(label="Profile Picture", max_length=50,
                                   widget=forms.FileInput(attrs={"class": "form-control"}))
 
 
@@ -131,8 +127,7 @@ class EditMtForm(forms.Form):
                                   widget=forms.TextInput(attrs={"class": "form-control"}))
     designation = forms.CharField(label="Designation", max_length=50,
                                   widget=forms.TextInput(attrs={"class": "form-control"}))
-    profile_pic = forms.FileField(label="Profile Picture", max_length=50,
-                                  widget=forms.FileInput(attrs={"class": "form-control"}))
+
 
 
 class AddGBForm(forms.Form):

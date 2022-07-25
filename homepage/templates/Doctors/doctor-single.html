@@ -8,11 +8,11 @@
 		<div class="row">
 			<div class="col-lg-4 col-md-6">
 				<div class="doctor-img-block">
-					<img src="{{ doctor_details.profile_pic }}" alt="" class="img-fluid w-100">
+					<img src="{{ object.profile_pic }}" alt="" class="img-fluid w-100">
 
 					<div class="info-block mt-4">
-						<h4 class="mb-0" style="align-items: center">{{ doctor_details.admin.first_name}}{{ doctor_details.admin.last_name }}</h4>
-                        <p style="align-self: center">{{ doctor_details.degree }} <br> {{ doctor_details.designation }}, {{ doctor_details.department_id.department_name }}</p>
+						<h4 class="mb-0" style="align-items: center">{{ object.admin.first_name}}{{ object.admin.last_name }}</h4>
+                        <p style="align-self: center">{{ object.degree }} <br> {{ object.designation }}, {{ object.department_id.department_name }}</p>
 
 					</div>
 				</div>
@@ -23,7 +23,7 @@
 					<h3 class="text-md">Introducing to myself</h3>
 					<div class="divider my-4"></div>
                         <span>
-                            {{ doctor_details.research_publication|safe }}
+                            {{ object.research_publication|safe }}
                         </span>
 
 

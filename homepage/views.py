@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.shortcuts import render, HttpResponse
 # from .models import Doctor, Department, service, news, Author, Category
 # from .forms import DepartmentForm, ServiceForm
-from CustomAdminPanel.models import Doctors, Departments, Service
+from CustomAdminPanel.models import Doctors, Departments, Service, GoverningBody, ManagementTeam
 
 from django.db.models import Q
 
@@ -49,21 +49,20 @@ def register_view(request):
 #     return render(request, "Doctors/doc_insert.html", context)
 
 
-def doctor_details(request, doctor_id):
-    request.session['doctor_id'] = doctor_id
-    doctor = Doctors.objects.get(admin=doctor_id)
+def doctor_details(request, id):
+    request.session['doctor_id'] = id
+    obj = Doctors.objects.get(admin=id)
+    doctor_details = Doctors.objects.all()
     context = {
-        'doctor_details': doctor,
-        "id": doctor_id,
-        "username": doctor.admin.username
+        'object': obj,
+        'doctor_details': doctor_details
     }
     return render(request, "Doctors/doctor-single.html", context)
 
 
-def department_details(request, department_id):
-
-    request.session['department_id'] = department_id
-    department = Departments.objects.get(id=department_id)
+def department_details(request, id):
+    request.session['department_id'] = id
+    department = Departments.objects.get(id=id)
     doctor_list = Doctors.objects.all()
     department_list = Departments.objects.all()
     departments = request.GET.get('departments')
@@ -76,7 +75,7 @@ def department_details(request, department_id):
         'doctor_list': doctor_list,
         'department': department,
         'department_list': department_list,
-        "id": department_id,
+        "id": id,
     }
     return render(request, "Department/department-single.html", context)
 
@@ -107,100 +106,6 @@ def doctor_list_view(request, *args, **kwargs):
     return render(request, "Doctors/doctor_list.html", context)
 
 
-# def department_insert_view(request):
-#     form = DepartmentForm()
-#     if request.method == 'POST':
-#         form = DepartmentForm(request.POST, request.FILES)
-#
-#         if form.is_valid():
-#             form.save()
-#
-#     context = {
-#         'form': form
-#     }
-#     return render(request, 'Department/department-insert.html', context)
-
-
-# def success(request):
-#     return HttpResponse('successfully uploaded')
-
-
-# def department_list_view(request):
-#     if request.method == 'GET':
-#         queryset = Department.objects.all()
-#         context = {
-#             "dep_list": queryset
-#         }
-#     return render(request, "Department/department.html", context)
-#
-#
-# def dynamic_lookup_view_dept(request, id):
-#     obj = Department.objects.get(id=id)
-#     context = {
-#         'object': obj
-#     }
-#     return render(request, "Department/department-single.html", context)
-
-
-# def department_list_view2(request):
-#     if request.method == 'GET':
-#         queryset = Department.objects.all()
-#         context = {
-#             "dep_list": queryset
-#         }
-#     return render(request, "Department/department_with_sidebar.html", context)
-
-
-# Create your views here.
-# def is_valid_queryparam(param):
-#     return param != '' and param is not None
-#
-#
-# def blog_list_view(request):
-#     queryset = news.objects.all()
-#     cat_list = Category.objects.all()
-#     category = request.GET.get('category')
-#     title_or_author_query = request.GET.get('title_or_author')
-#
-#     if is_valid_queryparam(title_or_author_query):
-#         queryset = queryset.filter(Q(title__icontains=title_or_author_query)
-#                                    | Q(author__name__icontains=title_or_author_query)
-#                                    ).distinct()
-#
-#     if is_valid_queryparam(category) and category != 'Choose...':
-#         queryset = queryset.filter(categories__name=category)
-#     else:
-#         news.objects.all()
-#     context = {
-#         "blog_list": queryset,
-#         "cat_list": cat_list
-#         # 'post_count': post_count
-#     }
-#     return render(request, "News&events/blog.html", context)
-
-
-# def dynamic_lookup_view(request, id):
-#     obj = news.objects.get(id=id)
-#     context = {
-#         'object': obj
-#     }
-#     return render(request, "News&events/blog-single.html", context)
-#
-#
-# def service_insert_view(request):
-#     form = ServiceForm()
-#     if request.method == 'POST':
-#         form = ServiceForm(request.POST, request.FILES)
-#
-#         if form.is_valid():
-#             form.save()
-#
-#     context = {
-#         'form': form
-#     }
-#     return render(request, 'Services/service-insert.html', context)
-
-
 def service_list_view(request):
     if 'q' in request.GET:
         q = request.GET['q']
@@ -215,7 +120,21 @@ def service_list_view(request):
 
 
 def gb_list_view(request):
-    return render(request, "governing_body.html")
+    gb = GoverningBody.objects.all()
+
+    context = {
+        'gb': gb
+    }
+    return render(request, "governing_body.html", context)
+
+
+def management_team_view(request):
+    management_team = ManagementTeam.objects.all()
+
+    context = {
+        'management_team': management_team
+    }
+    return render(request, "management_team.html", context)
 
 
 # def dynamic_lookup_service_view(request, id):

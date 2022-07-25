@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% block title %}Management Team | Ahsania Mission Cancer & General Hospital{% endblock title %}
 {% block page_name %}Management Team{% endblock page_name %}
-{% block page_link %}<a href="{% url 'homepage:mt_list' %}">Management Team</a>{% endblock page_link %}
+{% block page_link %}<a href="{% url 'homepage:management-team' %}">Management Team</a>{% endblock page_link %}
 {% load static %}
 {% block content %}
 
@@ -19,12 +19,12 @@
                     </div>
                 </div>
                 <div class="row">
-                    {% for doc_list in queryset %}
-                            <div class="col-md-3 " style="padding-right:10px; float: left">
+                    {% for mt_list in management_team %}
+                            <div class="col-md-4 " style="padding-right:10px; float: left">
                                         <div class="team-block p-relative">
                                             <div class="inner-box">
                                                 <div class="image animate-img">
-                                                    <img src="{{ doc_list.profile_pic }}" alt="img" class="full-width">
+                                                    <img src="{{ mt_list.profile_pic }}" alt="img" class="full-width">
                                                     <div class="overlay-box">
                                                         <div class="overlay-inner p-relative full-height">
                                                             <ul class="team-social-box custom">
@@ -37,8 +37,9 @@
                                                     </div>
                                                 </div>
                                                 <div class="lower-content p-relative text-center">
-                                                    <h4><a href="/doctor_details/{{ doc_list.admin.id }}" class="text-custom-black fw-600 fs-20">{{ doc_list.admin.first_name }} {{ doc_list.admin.last_name }}</a></h4>
-                                                    <p class="designation text-light-white">{{ doc_list.designation }}</p>
+                                                    <h4><a href="#" class="text-custom-black fw-600 fs-20">{{ mt_list.member_name }}</a></h4>
+                                                    <p class="designation text-light-white">{{ mt_list.designation }}</p>
+                                                    <p class="designation text-light-white">{{ mt_list.institution }}</p>
                                                 </div>
                                             </div>
 
