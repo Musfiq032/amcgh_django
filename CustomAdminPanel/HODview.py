@@ -429,7 +429,7 @@ def edit_doctor_save(request):
                 return HttpResponseRedirect(reverse("edit_doctor", kwargs={"doctor_id": doctor_id}))
             except:
                 messages.error(request, "Failed to Edit Student")
-                return HttpResponseRedirect(reverse("edit_doctor", kwargs={"student_id": doctor_id}))
+                return HttpResponseRedirect(reverse("edit_doctor", kwargs={"doctor_id": doctor_id}))
         else:
             form = EditDoctorForm(request.POST)
             doctor = Doctors.objects.get(admin=doctor_id)

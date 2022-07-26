@@ -10,7 +10,8 @@ from homepage.views import (home_view,
                             doctor_details,
                             gb_list_view,
                             department_details,
-                            management_team_view)
+                            management_team_view,
+                            service_details_view)
 from django.urls import path
 from . import views
 
@@ -25,7 +26,7 @@ urlpatterns = [
                   path('about/', about_us_view, name='about'),
                   # path('login_user/', views.user_login, name='login'),
                   path('register_user', views.register_view, name='register'),
-                  # path('<int:id>/', dynamic_lookup_view, name='service-detail'),
+                  path('service_details/<int:id>', service_details_view, name='service_detail'),
                   path('service-list/', service_list_view, name='service-list'),
                   # path('service-insert/', service_insert_view),
                   # path('news/', views.blog_list_view, name='news'),

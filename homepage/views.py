@@ -109,12 +109,12 @@ def doctor_list_view(request, *args, **kwargs):
 def service_list_view(request):
     if 'q' in request.GET:
         q = request.GET['q']
-        service_list = Service.objects.filter(service_name__icontains=q)
+        filtered_service_list = Service.objects.filter(service_name__icontains=q)
     else:
-        service_list = Service.objects.all()
+        filtered_service_list = Service.objects.all()
 
     context = {
-        'service_list': service_list
+        's_list': filtered_service_list
     }
     return render(request, "Services/service.html", context)
 
@@ -137,14 +137,15 @@ def management_team_view(request):
     return render(request, "management_team.html", context)
 
 
-# def dynamic_lookup_service_view(request, id):
-#     obj = service.objects.get(id=id)
-#     ser_list = service.objects.all()
-#     context = {
-#         'object': obj,
-#         'service': ser_list
-#     }
-#     return render(request, "Services/service-detail.html", context)
+def service_details_view(request, id):
+    service = Service.objects.get(id=id)
+    service_details = Service.objects.all()
+    context = {
+        'service': service,
+        'service_details': service_details
+    }
+    return render(request, "Services/service-detail.html", context)
+
 
 def contact_view(request):
     return render(request, 'contact.html')

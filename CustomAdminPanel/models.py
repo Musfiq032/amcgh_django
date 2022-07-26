@@ -38,7 +38,7 @@ class Doctors(models.Model):
     id = models.AutoField(primary_key=True)
     admin = models.OneToOneField(CustomUser, on_delete=models.CASCADE)
     designation = models.TextField(null=False)
-    department_id = models.ForeignKey(Departments, on_delete=models.CASCADE)
+    department_id = models.ManyToManyField(Departments)
     degree = models.CharField(max_length=255)
     gender = models.CharField(max_length=255)
     profile_pic = models.FileField(upload_to='Doctor_Profile_Pic/')
@@ -77,6 +77,9 @@ class Service(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now_add=True)
     objects = models.Manager()
+
+    def get_absolute_url(self):
+        return reverse("homepage:service_detail", kwargs={"id": self.id})
 
 
 @receiver(post_save, sender=CustomUser)
