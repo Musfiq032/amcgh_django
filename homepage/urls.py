@@ -11,7 +11,8 @@ from homepage.views import (home_view,
                             gb_list_view,
                             department_details,
                             management_team_view,
-                            service_details_view)
+                            service_details_view,
+                            gallery_view)
 from django.urls import path
 from . import views
 
@@ -24,6 +25,7 @@ urlpatterns = [
                   path('contact/', contact_view, name='contact-us'),
                   path('blog/', blog_view, name='blog'),
                   path('about/', about_us_view, name='about'),
+                  path('gallery/', gallery_view, name='gallery'),
                   # path('login_user/', views.user_login, name='login'),
                   path('register_user', views.register_view, name='register'),
                   path('service_details/<int:id>', service_details_view, name='service_detail'),

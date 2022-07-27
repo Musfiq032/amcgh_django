@@ -4,9 +4,11 @@ from django.http import HttpResponseRedirect, HttpResponse
 from django.shortcuts import render
 from django.urls import reverse
 from CustomAdminPanel.forms import AddDoctorForm, EditDoctorForm, AddDepartmentForm, EditDepartmentForm, AddServiceForm, \
-    EditMtForm, EditServiceForm, AddMtForm, AddGBForm, EditGBForm
+    EditMtForm, EditServiceForm, AddMtForm, AddGBForm, EditGBForm, EditGalleryForm, AddGalleryForm, AddCategory, \
+    EditCategory
 
-from CustomAdminPanel.models import CustomUser, Doctors, Departments, Service, ManagementTeam, GoverningBody
+from CustomAdminPanel.models import CustomUser, Doctors, Departments, Service, ManagementTeam, GoverningBody, \
+    GalleryCategory, Gallery
 
 
 def admin_home(request):
@@ -154,7 +156,6 @@ def add_doctor(request):
     return render(request, "hod_template/add_doctor_template.html", {"form": form})
 
 
-#
 def add_doctor_save(request):
     if request.method != "POST":
         return HttpResponse("Method Not Allowed")
@@ -208,37 +209,68 @@ def dynamic_lookup_view_doc(request, id):
     return render(request, "Doctors/doctor-single.html", context)
 
 
-# def add_subject(request):
-#     courses = Course.objects.all()
-#     staffs = CustomUser.objects.filter(user_type=2)
-#     return render(request, "hod_template/add_subject_template.html", {"staffs": staffs, "courses": courses})
-#
-#
-# def add_subject_save(request):
-#     if request.method != "POST":
-#         return HttpResponse("<h2>Method Not Allowed</h2>")
-#     else:
-#         subject_name = request.POST.get("subject_name")
-#         subject_code = request.POST.get("subject_code")
-#         course_id = request.POST.get("course")
-#         course = Course.objects.get(id=course_id)
-#         staff_id = request.POST.get("staff")
-#         staff = CustomUser.objects.get(id=staff_id)
-#
-#         try:
-#             subject = Subjects(subject_name=subject_name, subject_code=subject_code, course_id=course, staff_id=staff)
-#             subject.save()
-#             messages.success(request, "Successfully Added Subject")
-#             return HttpResponseRedirect(reverse("add_subject"))
-#         except:
-#             messages.error(request, "Failed to Add Subject")
-#             return HttpResponseRedirect(reverse("add_subject"))
-#
-#
-# def manage_staff(request):
-#     staffs = Staffs.objects.all()
-#     return render(request, 'hod_template/manage_staff_template.html', {'staffs': staffs})
-#
+def add_gallery(request):
+    form = AddGalleryForm()
+    return render(request, "hod_template/add_gallery_template.html", {"form": form})
+
+
+def add_gallery_save(request):
+    if request.method != "POST":
+        return HttpResponse("Method Not Allowed")
+    else:
+        form = AddGalleryForm(request.POST, request.FILES)
+        if form.is_valid():
+            image_name = form.cleaned_data["image_name"]
+            category_id = form.cleaned_data['category']
+
+            image = request.FILES['image']
+            fs = FileSystemStorage()
+            filename = fs.save(image_name, image)
+            image_url = fs.url(filename)
+
+            try:
+                gallery_model = Gallery(image_name=image_name)
+
+                category_obj = GalleryCategory.objects.get(id=category_id)
+                gallery_model.category_id = category_obj
+                gallery_model.image = image_url
+                gallery_model.save()
+                messages.success(request, "Successfully Added Image")
+                return HttpResponseRedirect(reverse("add_gallery"))
+            except:
+                messages.error(request, "Failed to Add Image")
+                return HttpResponseRedirect(reverse("add_gallery"))
+        else:
+            form = AddGalleryForm(request.POST)
+            return render(request, "hod_template/add_gallery_template.html", {"form": form})
+
+
+def add_category(request):
+    form = AddCategory()
+    return render(request, "hod_template/add_category_template.html", {"form": form})
+
+
+def add_category_save(request):
+    if request.method != "POST":
+        return HttpResponse("Method Not Allowed")
+    else:
+        form = AddCategory(request.POST, request.FILES)
+        if form.is_valid():
+            category_name = form.cleaned_data["category_name"]
+
+            try:
+                category_model = GalleryCategory(category_name=category_name)
+
+                category_model.save()
+                messages.success(request, "Successfully Added Category")
+                return HttpResponseRedirect(reverse("add_category"))
+            except:
+                messages.error(request, "Failed to Add Category")
+                return HttpResponseRedirect(reverse("add_category"))
+        else:
+            form = AddCategory(request.POST)
+            return render(request, "hod_template/add_category_template.html", {"form": form})
+
 
 def manage_doctor(request):
     doctor = Doctors.objects.all()
@@ -248,6 +280,11 @@ def manage_doctor(request):
 def manage_service(request):
     service = Service.objects.all()
     return render(request, 'hod_template/manage_service_template.html', {'service': service})
+
+
+def manage_gallery(request):
+    gallery = Gallery.objects.all()
+    return render(request, 'hod_template/manage_gallery_template.html', {'gallery': gallery})
 
 
 def manage_department(request):
@@ -355,6 +392,55 @@ def edit_gb_save(request):
             gb = ManagementTeam.objects.get(id=gb_id)
             return render(request, "hod_template/edit_gb_template.html",
                           {"form": form, "id": gb_id, "gb": gb})
+
+
+def edit_gallery(request, gallery_id):
+    request.session['gallery_id'] = gallery_id
+    gallery = ManagementTeam.objects.get(id=gallery_id)
+    form = EditGalleryForm()
+    form.fields['image_name'].initial = gallery.image_name
+    form.fields['image'].initial = gallery.image
+    form.fields['category'].initial = gallery.category
+
+    return render(request, "hod_template/edit_gallery_template.html",
+                  {"form": form, "id": gallery_id, "image_name": gallery.image_name})
+
+
+def edit_gallery_save(request):
+    if request.method != "POST":
+        return HttpResponse("<h2>Method Not Allowed</h2>")
+    else:
+        gallery_id = request.session.get('gallery_id')
+        form = EditGalleryForm(request.POST, request.FILES)
+        if form.is_valid():
+            image_name = form.cleaned_data["image_name"]
+            category = form.cleaned_data["category"]
+
+            if request.FILES.get('profile_pic', False):
+                image = request.FILES['image']
+                fs = FileSystemStorage()
+                filename = fs.save(image.image_name, image)
+                image_url = fs.url(filename)
+            else:
+                image_url = None
+
+            try:
+                gallery = Gallery.objects.get(id=gallery_id)
+                gallery.image_name = image_name
+                category = GalleryCategory.objects.get(id=category)
+                gallery.department_id = category
+                gallery.image = image_url
+                gallery.save()
+                messages.success(request, "Successfully Edited Gallery")
+                return HttpResponseRedirect(reverse("edit_gallery", kwargs={"gallery_id": gallery_id}))
+            except:
+                messages.error(request, "Failed to Edit Gallery")
+                return HttpResponseRedirect(reverse("edit_gallery", kwargs={"gallery_id": gallery_id}))
+        else:
+            form = EditGalleryForm(request.POST)
+            gallery = Gallery.objects.get(id=gallery_id)
+            return render(request, "hod_template/edit_gallery_template.html",
+                          {"form": form, "id": gallery_id, "gallery": gallery})
 
 
 def edit_doctor(request, doctor_id):

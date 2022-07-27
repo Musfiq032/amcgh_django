@@ -38,7 +38,7 @@ class Doctors(models.Model):
     id = models.AutoField(primary_key=True)
     admin = models.OneToOneField(CustomUser, on_delete=models.CASCADE)
     designation = models.TextField(null=False)
-    department_id = models.ManyToManyField(Departments)
+    department_id = models.ForeignKey(Departments, on_delete=models.CASCADE)
     degree = models.CharField(max_length=255)
     gender = models.CharField(max_length=255)
     profile_pic = models.FileField(upload_to='Doctor_Profile_Pic/')
@@ -66,6 +66,20 @@ class GoverningBody(models.Model):
     member_name = models.CharField(max_length=255)
     designation = models.CharField(max_length=255)
     institution = models.CharField(max_length=255)
+    objects = models.Manager()
+
+
+class GalleryCategory(models.Model):
+    id = models.AutoField(primary_key=True)
+    category_name = models.CharField(max_length=255)
+    objects = models.Manager()
+
+
+class Gallery(models.Model):
+    id = models.AutoField(primary_key=True)
+    image_name = models.CharField(max_length=255)
+    image = models.ImageField(upload_to='Gallery', default='default.png')
+    category_id = models.ForeignKey(GalleryCategory, on_delete=models.CASCADE)
     objects = models.Manager()
 
 

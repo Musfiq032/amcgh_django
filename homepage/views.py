@@ -149,3 +149,7 @@ def service_details_view(request, id):
 
 def contact_view(request):
     return render(request, 'contact.html')
+
+
+def gallery_view(request):
+    return render(request, 'gallary.html')

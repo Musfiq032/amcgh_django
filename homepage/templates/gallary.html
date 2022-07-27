@@ -1,0 +1,107 @@
+   {% extends 'base.html' %}
+{% block title %}Contact Us | Ahsania Mission Cancer & General Hospital{% endblock title %}
+{% block page_name %}Contact{% endblock page_name %}
+{% block page_link %}<a href="{% url 'homepage:doctor-list' %}">Contact</a>{% endblock page_link %}
+{% load static %}
+{% block content %}
+        <section class="section-padding gallery-style-2 style-3">
+            <div class="container">
+                <div class="section-header">
+                    <div class="section-heading">
+                        <h3 class="text-custom-black fw-700">Our Gallery</h3>
+                        <img src="assets/images/title-icon.png" class="mb-xl-20" alt="img">
+                        <div class="section-description">
+                            <p class="text-light-white">
+                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="filter-gallery mb-xl-40">
+                            <ul class="custom">
+                                <li class="active" data-filter="*">
+                                    <a href="#" class="text-custom-black">All</a>
+                                </li>
+                                <li data-filter=".cardiology">
+                                    <a href="#" class="text-custom-black">Cardiology</a>
+                                </li>
+                                <li data-filter=".dental">
+                                    <a href="#" class="text-custom-black">Dental</a>
+                                </li>
+                                <li data-filter=".diagnostic">
+                                    <a href="#" class="text-custom-black">Diagnostic</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="row gallery-grid">
+                    <div class="col-lg-4 col-sm-6 filter-box cardiology">
+                        <div class="gallery-item animate-img mb-xl-30">
+                            <a href="https://via.placeholder.com/350" class="popup">
+                                <img src="https://via.placeholder.com/350" class="image-fit" alt="img">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6 filter-box dental">
+                        <div class="gallery-item animate-img mb-xl-30">
+                            <a href="https://via.placeholder.com/350" class="popup">
+                                <img src="https://via.placeholder.com/350" class="image-fit" alt="img">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6 filter-box diagnostic">
+                        <div class="gallery-item animate-img mb-xl-30">
+                            <a href="https://via.placeholder.com/350" class="popup">
+                                <img src="https://via.placeholder.com/350" class="image-fit" alt="img">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6 filter-box cardiology">
+                        <div class="gallery-item animate-img mb-xl-30">
+                            <a href="https://via.placeholder.com/350" class="popup">
+                                <img src="https://via.placeholder.com/350" class="image-fit" alt="img">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6 filter-box dental">
+                        <div class="gallery-item animate-img mb-xl-30">
+                            <a href="https://via.placeholder.com/350" class="popup">
+                                <img src="https://via.placeholder.com/350" class="image-fit" alt="img">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6 filter-box diagnostic">
+                        <div class="gallery-item animate-img mb-xl-30">
+                            <a href="https://via.placeholder.com/350" class="popup">
+                                <img src="https://via.placeholder.com/350" class="image-fit" alt="img">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6 filter-box cardiology">
+                        <div class="gallery-item animate-img mb-md-30">
+                            <a href="https://via.placeholder.com/350" class="popup">
+                                <img src="https://via.placeholder.com/350" class="image-fit" alt="img">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6 filter-box diagnostic">
+                        <div class="gallery-item animate-img mb-md-30">
+                            <a href="https://via.placeholder.com/350" class="popup">
+                                <img src="https://via.placeholder.com/350" class="image-fit" alt="img">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6 filter-box dental">
+                        <div class="gallery-item animate-img">
+                            <a href="https://via.placeholder.com/350" class="popup">
+                                <img src="https://via.placeholder.com/350" class="image-fit" alt="img">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+  {% endblock %}

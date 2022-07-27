@@ -164,7 +164,7 @@
                                                         <a href="{% url 'homepage:blog' %}" class="text-light-grey">Blog</a>
                                                     </li>
                                                  <li class="menu-item">
-                                                        <a href="#" class="text-light-grey">Photo Gallery</a>
+                                                        <a href="{% url 'homepage:gallery' %}" class="text-light-grey">Photo Gallery</a>
                                                     </li>
 
                                                 </ul>
@@ -227,9 +227,9 @@
                                 <h3 class="text-custom-white lh-default fw-600">{% block page_name %}Default Value{% endblock page_name %}</h3>
                                 <ul class="custom">
                                     <li>
-                                        <a href="{% url 'homepage:Home' %}" class="text-custom-white">Home</a>
+                                        <a href="{% url 'homepage:Home' %}" class="text-custom-white"> Home&nbsp;</a>
                                     </li>
-                                    <li class="text-custom-white active">{% block page_link %}Default Value{% endblock page_link %}</li>
+                                    <li class="text-custom-white active">{% block page_link %}&nbsp;Default Value&nbsp;{% endblock page_link %}</li>
                                 </ul>
                             </div>
                         </div>

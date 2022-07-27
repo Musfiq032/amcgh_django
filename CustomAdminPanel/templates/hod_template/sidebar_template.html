@@ -24,39 +24,10 @@
       <!-- Sidebar Menu -->
       <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-          <!-- Add icons to the links using the .nav-icon class
-               with font-awesome or any other icon font library -->
-{#          <li class="nav-item">#}
-{##}
-{#            <a href="#" class="nav-link {% if request.path == add_staff %} active {% endif %}">#}
-{#              <i class="nav-icon fas fa-th"></i>#}
-{#              <p>#}
-{#                Add Staff#}
-{#              </p>#}
-{#            </a>#}
-{#          </li>#}
-{#           <li class="nav-item">#}
-{##}
-{#            <a href="#" class="nav-link {% if request.path == add_session_year %} active {% endif %} {% if request.path == add_session_year %} active {% endif %}">#}
-{#              <i class="nav-icon fas fa-th"></i>#}
-{#              <p>#}
-{#                Add Session Year#}
-{#              </p>#}
-{#            </a>#}
-{#          </li>#}
-{#           <li class="nav-item">#}
-{##}
-{#            <a href="#" class="nav-link {% if request.path == manage_staff %} active {% endif %} {% if request.path == edit_staff %} active {% endif %}">#}
-{#              <i class="nav-icon fas fa-th"></i>#}
-{#              <p>#}
-{#                Manage Staff#}
-{#              </p>#}
-{#            </a>#}
-{#          </li>#}
+
           <li class="nav-item">
 
             <a href="{% url "add_doctor" %}" class="nav-link {% if request.path == add_doctor %} active {% endif %}">
-              <i class="nav-icon fas fa-th"></i>
               <p>
                 Add Doctor
               </p>
@@ -65,7 +36,7 @@
           <li class="nav-item">
 
             <a href="{% url 'manage_doctor' %}" class="nav-link {% if request.path == manage_student %} active {% endif %} {% if request.path == edit_student %} active {% endif %}">
-              <i class="nav-icon fas fa-th"></i>
+
               <p>
                 Manage Doctor
               </p>
@@ -74,7 +45,7 @@
           <li class="nav-item">
 
             <a href="{% url 'add_department' %}" class="nav-link {% if request.path == add_course %} active {% endif %}">
-              <i class="nav-icon fas fa-th"></i>
+
               <p>
                 Add Department
               </p>
@@ -83,7 +54,7 @@
           <li class="nav-item">
 
             <a href="{% url 'manage_department' %}" class="nav-link {% if request.path == manage_department %} active {% endif %}">
-              <i class="nav-icon fas fa-th"></i>
+
               <p>
                 Manage Department
               </p>
@@ -92,7 +63,7 @@
           <li class="nav-item">
 
             <a href="{% url 'add_service' %}" class="nav-link {% if request.path == add_service %} active {% endif %}">
-              <i class="nav-icon fas fa-th"></i>
+
               <p>
                 Add Service
               </p>
@@ -101,7 +72,7 @@
           <li class="nav-item">
 
             <a href="{% url 'manage_service' %}" class="nav-link {% if request.path == manage_service %} active {% endif %} {% if request.path == edit_subject %} active {% endif %} ">
-              <i class="nav-icon fas fa-th"></i>
+
               <p>
                 Manage Service
               </p>
@@ -110,7 +81,7 @@
          <li class="nav-item">
 
             <a href="{% url 'add_mt' %}" class="nav-link {% if request.path == add_service %} active {% endif %}">
-              <i class="nav-icon fas fa-th"></i>
+
               <p>
                 Add Management Team Members
               </p>
@@ -119,7 +90,7 @@
           <li class="nav-item">
 
             <a href="{% url 'manage_mt' %}" class="nav-link {% if request.path == manage_mt %} active {% endif %} {% if request.path == edit_mt %} active {% endif %} ">
-              <i class="nav-icon fas fa-th"></i>
+
               <p>
                 Manage Management Team Members
               </p>
@@ -128,7 +99,7 @@
                  <li class="nav-item">
 
             <a href="{% url 'add_gb' %}" class="nav-link {% if request.path == add_gb %} active {% endif %}">
-              <i class="nav-icon fas fa-th"></i>
+
               <p>
                 Add Governing Body Members
               </p>
@@ -137,11 +108,28 @@
           <li class="nav-item">
 
             <a href="{% url 'manage_gb' %}" class="nav-link {% if request.path == manage_gb %} active {% endif %} {% if request.path == edit_gb %} active {% endif %} ">
-              <i class="nav-icon fas fa-th"></i>
+
               <p>
                 Manage Governing Body Members
               </p>
             </a>
+          </li>
+
+                  <li class="nav-item has-submenu">
+                  <a class="nav-link" href="#"> Gallery  </a>
+        <ul class="dropdown-submenu">
+                <li>
+                      <a href="{% url 'add_category' %}" class="nav-link {% if request.path == add_category %} active {% endif %} {% if request.path == add_category %} active {% endif %} ">Add Category</a>
+                </li>
+                <li>
+                      <a href="{% url 'add_gallery' %}" class="nav-link {% if request.path == add_gallery %} active {% endif %} {% if request.path == add_gallery %} active {% endif %} ">Add Image</a>
+                </li>
+          <li>
+                      <a href="{% url 'manage_gallery' %}" class="nav-link {% if request.path == manage_gallery %} active {% endif %} {% if request.path == manage_gallery %} active {% endif %} ">Manage Gallery</a>
+                </li>
+
+        </ul>
+
           </li>
 {#           <li class="nav-item">#}
 {#             <a href="#" class="nav-link">#}

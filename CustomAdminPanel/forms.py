@@ -1,7 +1,7 @@
 from django import forms
 from ckeditor.fields import CKEditorWidget
-from CustomAdminPanel.models import Departments
-from multiselectfield import MultiSelectFormField,MultiSelectField
+from CustomAdminPanel.models import Departments, GalleryCategory
+from multiselectfield import MultiSelectFormField, MultiSelectField
 
 
 class DateInput(forms.DateInput):
@@ -72,7 +72,7 @@ class EditDoctorForm(forms.Form):
     )
 
     department = forms.ChoiceField(label="Department", choices=department_list,
-                                           widget=forms.SelectMultiple(attrs={"class": "form-control"}))
+                                   widget=forms.SelectMultiple(attrs={"class": "form-control"}))
     sex = forms.ChoiceField(label="Sex", choices=gender_choice, widget=forms.Select(attrs={"class": "form-control"}))
     degree = forms.CharField(label="Degree", widget=forms.TextInput(attrs={"class": "form-control "}))
 
@@ -145,3 +145,49 @@ class EditGBForm(forms.Form):
                                   widget=forms.TextInput(attrs={"class": "form-control"}))
     designation = forms.CharField(label="Designation", max_length=50,
                                   widget=forms.TextInput(attrs={"class": "form-control"}))
+
+
+class AddGalleryForm(forms.Form):
+    image_name = forms.CharField(label="Image Name", max_length=50,
+                                 widget=forms.TextInput(attrs={"class": "form-control"}))
+    category_list = []
+    try:
+        categories = GalleryCategory.objects.all()
+        for category in categories:
+            small_category = (category.id, category.category_name)
+            category_list.append(small_category)
+    except:
+        category_list = []
+
+    category = forms.ChoiceField(label="Category", choices=category_list,
+                                 widget=forms.Select(attrs={"class": "form-control"}))
+    image = forms.ImageField(label="Image", max_length=50,
+                             widget=forms.FileInput(attrs={"class": "form-control"}))
+
+
+class EditGalleryForm(forms.Form):
+    category_list = []
+    try:
+        categories = GalleryCategory.objects.all()
+        for category in categories:
+            small_category = (category.id, category.category_name)
+            category_list.append(small_category)
+    except:
+        category_list = []
+
+    image_name = forms.CharField(label="Image Name", max_length=50,
+                                 widget=forms.TextInput(attrs={"class": "form-control"}))
+    image = forms.ImageField(label="Image",
+                             widget=forms.FileInput(attrs={"class": "form-control"}))
+    category = forms.ChoiceField(label="Category", choices=category_list,
+                                 widget=forms.Select(attrs={"class": "form-control"}))
+
+
+class AddCategory(forms.Form):
+    category_name = forms.CharField(label="Category Name", max_length=50,
+                                    widget=forms.TextInput(attrs={"class": "form-control"}))
+
+
+class EditCategory(forms.Form):
+    category_name = forms.CharField(label="Category Name", max_length=50,
+                                    widget=forms.TextInput(attrs={"class": "form-control"}))
