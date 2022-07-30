@@ -2,7 +2,8 @@ from django.shortcuts import render
 from django.shortcuts import render, HttpResponse
 # from .models import Doctor, Department, service, news, Author, Category
 # from .forms import DepartmentForm, ServiceForm
-from CustomAdminPanel.models import Doctors, Departments, Service, GoverningBody, ManagementTeam
+from CustomAdminPanel.models import Doctors, Departments, Service, GoverningBody, ManagementTeam, Gallery, \
+    GalleryCategory
 
 from django.db.models import Q
 
@@ -152,4 +153,17 @@ def contact_view(request):
 
 
 def gallery_view(request):
-    return render(request, 'gallary.html')
+    gallery_category = GalleryCategory.objects.all()
+    gallery = Gallery.objects.all()
+    filterd_gallery_category = request.GET.get('category')
+
+    if filterd_gallery_category == 'All':
+        gallery = Gallery.objects.all()
+    elif is_valid_queryparam(filterd_gallery_category):
+        gallery = gallery.filter(category_id__category_name=filterd_gallery_category)
+
+    context = {
+        'gallery_category': gallery_category,
+        'filterd_gallery': gallery
+    }
+    return render(request, 'gallary.html', context)

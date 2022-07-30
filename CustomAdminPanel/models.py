@@ -78,7 +78,7 @@ class GalleryCategory(models.Model):
 class Gallery(models.Model):
     id = models.AutoField(primary_key=True)
     image_name = models.CharField(max_length=255)
-    image = models.ImageField(upload_to='Gallery', default='default.png')
+    gallery_image = models.ImageField(upload_to='Gallery', default='default.png')
     category_id = models.ForeignKey(GalleryCategory, on_delete=models.CASCADE)
     objects = models.Manager()
 

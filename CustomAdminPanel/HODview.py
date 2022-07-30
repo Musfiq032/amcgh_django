@@ -223,17 +223,17 @@ def add_gallery_save(request):
             image_name = form.cleaned_data["image_name"]
             category_id = form.cleaned_data['category']
 
-            image = request.FILES['image']
+            gallery_image = request.FILES['gallery_image']
             fs = FileSystemStorage()
-            filename = fs.save(image_name, image)
-            image_url = fs.url(filename)
+            filename = fs.save(gallery_image.name, gallery_image)
+            gallery_image_url = fs.url(filename)
 
             try:
                 gallery_model = Gallery(image_name=image_name)
 
                 category_obj = GalleryCategory.objects.get(id=category_id)
                 gallery_model.category_id = category_obj
-                gallery_model.image = image_url
+                gallery_model.gallery_image = gallery_image_url
                 gallery_model.save()
                 messages.success(request, "Successfully Added Image")
                 return HttpResponseRedirect(reverse("add_gallery"))

@@ -161,7 +161,7 @@ class AddGalleryForm(forms.Form):
 
     category = forms.ChoiceField(label="Category", choices=category_list,
                                  widget=forms.Select(attrs={"class": "form-control"}))
-    image = forms.ImageField(label="Image", max_length=50,
+    gallery_image = forms.ImageField(label="Gallery Image", max_length=50,
                              widget=forms.FileInput(attrs={"class": "form-control"}))
 
 
