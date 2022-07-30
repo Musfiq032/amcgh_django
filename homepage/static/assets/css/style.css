@@ -2374,7 +2374,7 @@ label.custom-checkbox .checkmark:after {
     background-color: #109a49;
 }
 .gallery-style-2.style-3 .gallery-grid .gallery-item>a:after{
-    background-color: #66b7ca;
+    background-color: rgba(255, 255, 255, 0);
 }
 /*======================
 2.9 Why Choose Us
