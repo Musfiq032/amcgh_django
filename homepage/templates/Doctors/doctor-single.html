@@ -1,4 +1,8 @@
 {% extends 'base.html' %}
+{% block title %}{{ object.admin.first_name }} {{ object.admin.last_name }} | Ahsania Mission Cancer & General Hospital{% endblock title %}
+{% block page_name %}Doctor Details{% endblock page_name %}
+{% block page_link %}<a href="{% url 'homepage:doctor-list' %}">Doctor</a>{% endblock page_link %}
+{% block page_link_1 %}<a href="{{ object.get_absolute_url }}">{{ object.admin.first_name }} {{ object.admin.last_name }}</a>{% endblock page_link_1 %}
 {% load static %}
 {% block content %}
 

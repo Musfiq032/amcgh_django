@@ -172,17 +172,16 @@
                                            <li class="menu-item">
                                                         <a href="{% url 'homepage:doctor-list' %}" class="text-custom-white">Our Doctors</a>
                                                     </li>
-                                            <li class="menu-item menu-item-has-children">
+                                                                  <li class="menu-item menu-item-has-children">
                                                         <a href="#" class="text-custom-white">Departments</a>
-                                                   <ul class="custom sub-menu">
-                                                    {% for departments in department_list %}
+                                                <ul class="custom sub-menu">
+                                                    {% for departments in department_menu %}
                                                     <li class="menu-item">
                                                         <a href="{{ departments.get_absolute_url }}?departments={{ departments.department_name }}" class="text-light-grey">{{ departments.department_name }}</a>
                                                     </li>
 
                                                     {% endfor %}
                                                 </ul>
-
                                                     </li>
                                             <li class="menu-item">
                                                         <a href="{% url 'homepage:service-list' %}" class="text-custom-white">Services</a>
@@ -229,7 +228,9 @@
                                     <li>
                                         <a href="{% url 'homepage:Home' %}" class="text-custom-white"> Home&nbsp;</a>
                                     </li>
-                                    <li class="text-custom-white active">{% block page_link %}&nbsp;Default Value&nbsp;{% endblock page_link %}</li>
+                                    <li class="text-custom-white">{% block page_link %}&nbsp;{% endblock page_link %}</li>
+                                    <li class="text-custom-white">{% block page_link_1 %} {% endblock page_link_1 %}</li>
+                                    <li class="text-custom-white">{% block page_link_2 %} {% endblock page_link_2 %}</li>
                                 </ul>
                             </div>
                         </div>

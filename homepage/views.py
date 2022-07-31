@@ -1,7 +1,4 @@
 from django.shortcuts import render
-from django.shortcuts import render, HttpResponse
-# from .models import Doctor, Department, service, news, Author, Category
-# from .forms import DepartmentForm, ServiceForm
 from CustomAdminPanel.models import Doctors, Departments, Service, GoverningBody, ManagementTeam, Gallery, \
     GalleryCategory
 
@@ -23,15 +20,27 @@ def home_view(request):
 
 
 def blog_view(request):
-    return render(request, 'News&events/blog-sidebar.html')
+    department_menu = Departments.objects.all()
+    context = {
+        'department_menu': department_menu
+    }
+    return render(request, 'News&events/blog-sidebar.html',context)
 
 
 def about_us_view(request):
-    return render(request, 'about.html')
+    department_menu = Departments.objects.all()
+    context = {
+        'department_menu': department_menu
+    }
+    return render(request, 'about.html',context)
 
 
 def register_view(request):
-    return render(request, 'User/register.html')
+    department_menu = Departments.objects.all()
+    context = {
+        'department_menu': department_menu
+    }
+    return render(request, 'User/register.html',context)
 
 
 # def doctor_form_view(request):
@@ -54,9 +63,11 @@ def doctor_details(request, id):
     request.session['doctor_id'] = id
     obj = Doctors.objects.get(admin=id)
     doctor_details = Doctors.objects.all()
+    department_menu = Departments.objects.all()
     context = {
         'object': obj,
-        'doctor_details': doctor_details
+        'doctor_details': doctor_details,
+        'department_menu': department_menu
     }
     return render(request, "Doctors/doctor-single.html", context)
 
@@ -65,6 +76,7 @@ def department_details(request, id):
     request.session['department_id'] = id
     department = Departments.objects.get(id=id)
     doctor_list = Doctors.objects.all()
+    department_menu = Departments.objects.all()
     department_list = Departments.objects.all()
     departments = request.GET.get('departments')
     if departments is None:
@@ -77,6 +89,7 @@ def department_details(request, id):
         'department': department,
         'department_list': department_list,
         "id": id,
+        'department_menu': department_menu
     }
     return render(request, "Department/department-single.html", context)
 
@@ -86,6 +99,7 @@ def is_valid_queryparam(param):
 
 
 def doctor_list_view(request, *args, **kwargs):
+    department_menu = Departments.objects.all()
     qs = Doctors.objects.all()
 
     department_list = Departments.objects.values_list('department_name', flat=True)
@@ -101,6 +115,7 @@ def doctor_list_view(request, *args, **kwargs):
     context = {
         'queryset': qs,
         'department_list': department_list,
+        'department_menu':department_menu
 
     }
 
@@ -108,6 +123,7 @@ def doctor_list_view(request, *args, **kwargs):
 
 
 def service_list_view(request):
+    department_menu = Departments.objects.all()
     if 'q' in request.GET:
         q = request.GET['q']
         filtered_service_list = Service.objects.filter(service_name__icontains=q)
@@ -115,25 +131,29 @@ def service_list_view(request):
         filtered_service_list = Service.objects.all()
 
     context = {
-        's_list': filtered_service_list
+        's_list': filtered_service_list,
+        'department_menu': department_menu
     }
     return render(request, "Services/service.html", context)
 
 
 def gb_list_view(request):
+    department_menu = Departments.objects.all()
     gb = GoverningBody.objects.all()
 
     context = {
-        'gb': gb
+        'gb': gb,
+        'department_menu': department_menu
     }
     return render(request, "governing_body.html", context)
 
 
 def management_team_view(request):
     management_team = ManagementTeam.objects.all()
-
+    department_menu = Departments.objects.all()
     context = {
-        'management_team': management_team
+        'management_team': management_team,
+        'department_menu':department_menu
     }
     return render(request, "management_team.html", context)
 
@@ -141,18 +161,25 @@ def management_team_view(request):
 def service_details_view(request, id):
     service = Service.objects.get(id=id)
     service_details = Service.objects.all()
+    department_menu = Departments.objects.all()
     context = {
         'service': service,
-        'service_details': service_details
+        'service_details': service_details,
+        'department_menu':department_menu
     }
     return render(request, "Services/service-detail.html", context)
 
 
 def contact_view(request):
-    return render(request, 'contact.html')
+    department_menu = Departments.objects.all()
+    context = {
+        'department_menu':department_menu
+    }
+    return render(request, 'contact.html',context)
 
 
 def gallery_view(request):
+    department_menu = Departments.objects.all()
     gallery_category = GalleryCategory.objects.all()
     gallery = Gallery.objects.all()
     filterd_gallery_category = request.GET.get('category')
@@ -164,6 +191,7 @@ def gallery_view(request):
 
     context = {
         'gallery_category': gallery_category,
-        'filterd_gallery': gallery
+        'filterd_gallery': gallery,
+        'department_menu':department_menu
     }
     return render(request, 'gallary.html', context)

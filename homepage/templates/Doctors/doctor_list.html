@@ -36,20 +36,12 @@
                                             <div class="inner-box">
                                                 <div class="image animate-img">
                                                     <img src="{{ doc_list.profile_pic }}" alt="img" class="full-width">
-                                                    <div class="overlay-box">
-                                                        <div class="overlay-inner p-relative full-height">
-                                                            <ul class="team-social-box custom">
-                                                                <li class="youtube"><a href="#" class="fab fa-youtube fs-16"></a></li>
-                                                                <li class="linkedin"><a href="#" class="fab fa-linkedin fs-16"></a></li>
-                                                                <li class="facebook"><a href="#" class="fab fa-facebook-f fs-16"></a></li>
-                                                                <li class="twitter"><a href="#" class="fab fa-twitter fs-16"></a></li>
-                                                            </ul>
-                                                        </div>
-                                                    </div>
+
                                                 </div>
                                                 <div class="lower-content p-relative text-center">
                                                     <h4><a href="/doctor_details/{{ doc_list.admin.id }}" class="text-custom-black fw-600 fs-20">{{ doc_list.admin.first_name }} {{ doc_list.admin.last_name }}</a></h4>
-                                                    <p class="designation text-light-white">{{ doc_list.designation }}</p>
+                                                    <p class="designation text-light-white">{{ doc_list.designation }}, </p>
+                                                    <p class="designation text-light-white">{{ doc_list.department_id.department_name }}</p>
                                                 </div>
                                             </div>
 

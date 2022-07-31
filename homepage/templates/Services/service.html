@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% block title %}Services | Ahsania Mission Cancer & General Hospital{% endblock title %}
-{% block page_name %}Services{% endblock page_name %}
+{% block page_name %}All Services{% endblock page_name %}
 {% block page_link %}<a href="{% url 'homepage:service-list' %}">Service</a>{% endblock page_link %}
 {% load static %}
 {% block content %}
@@ -29,7 +29,7 @@
 
                 </div>
                 <div class="row">
-                    {% for service in service_list %}
+                    {% for service in s_list %}
 
                     <div class="col-lg-3 col-sm-6">
                         <div class="main-services-box p-relative mb-xl-30">
