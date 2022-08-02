@@ -24,7 +24,7 @@ def blog_view(request):
     context = {
         'department_menu': department_menu
     }
-    return render(request, 'News&events/blog-sidebar.html',context)
+    return render(request, 'News&events/blog-sidebar.html', context)
 
 
 def about_us_view(request):
@@ -32,7 +32,7 @@ def about_us_view(request):
     context = {
         'department_menu': department_menu
     }
-    return render(request, 'about.html',context)
+    return render(request, 'about.html', context)
 
 
 def register_view(request):
@@ -40,7 +40,7 @@ def register_view(request):
     context = {
         'department_menu': department_menu
     }
-    return render(request, 'User/register.html',context)
+    return render(request, 'User/register.html', context)
 
 
 # def doctor_form_view(request):
@@ -115,7 +115,7 @@ def doctor_list_view(request, *args, **kwargs):
     context = {
         'queryset': qs,
         'department_list': department_list,
-        'department_menu':department_menu
+        'department_menu': department_menu
 
     }
 
@@ -153,7 +153,7 @@ def management_team_view(request):
     department_menu = Departments.objects.all()
     context = {
         'management_team': management_team,
-        'department_menu':department_menu
+        'department_menu': department_menu
     }
     return render(request, "management_team.html", context)
 
@@ -165,7 +165,7 @@ def service_details_view(request, id):
     context = {
         'service': service,
         'service_details': service_details,
-        'department_menu':department_menu
+        'department_menu': department_menu
     }
     return render(request, "Services/service-detail.html", context)
 
@@ -173,9 +173,9 @@ def service_details_view(request, id):
 def contact_view(request):
     department_menu = Departments.objects.all()
     context = {
-        'department_menu':department_menu
+        'department_menu': department_menu
     }
-    return render(request, 'contact.html',context)
+    return render(request, 'contact.html', context)
 
 
 def gallery_view(request):
@@ -192,6 +192,22 @@ def gallery_view(request):
     context = {
         'gallery_category': gallery_category,
         'filterd_gallery': gallery,
-        'department_menu':department_menu
+        'department_menu': department_menu
     }
     return render(request, 'gallary.html', context)
+
+
+def career(request):
+    return render(request, 'career.html')
+
+
+def missionvission(request):
+    return render(request, 'mission&vision.html')
+
+
+def whoweare(request):
+    return render(request, 'whoweare.html')
+
+
+def backgroundhistory(request):
+    return render(request, 'backgroundhistory.html')

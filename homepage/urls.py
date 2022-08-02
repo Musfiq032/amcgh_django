@@ -12,7 +12,7 @@ from homepage.views import (home_view,
                             department_details,
                             management_team_view,
                             service_details_view,
-                            gallery_view)
+                            gallery_view,backgroundhistory,career,whoweare,missionvission)
 from django.urls import path
 from . import views
 
@@ -33,14 +33,16 @@ urlpatterns = [
                   # path('service-insert/', service_insert_view),
                   # path('news/', views.blog_list_view, name='news'),
                   # path('<int:id>/', views.dynamic_lookup_view, name='news-details'),
-                  # path('<int:id>/', dynamic_lookup_view_doc, name='doctor-detail'),
                   path('doctor-list/', doctor_list_view, name='doctor-list'),
                   path('department_details/<int:id>/', department_details, name='department_details'),
                   # path('department-list/', department_list_view, name='department-list'),
-                  # path('department-list-2/', department_list_view2, name='department-list-2'),
                   path('doctor_details/<int:id>', doctor_details, name="doctor_details"),
                   path('gb_list/', gb_list_view, name="governing-body"),
                   path('mt_list/', management_team_view, name="management-team"),
+                  path('career/', career, name="career"),
+                  path('mission&vission/', missionvission, name="mission&vission"),
+                  path('whoWeAre/', whoweare, name="whoWeAre"),
+                  path('backgroundHistory/', backgroundhistory, name="backgroundHistory"),
 
               ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) + static(settings.STATIC_URL,
                                                                                          document_root=settings.STATIC_ROOT)

@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% block title %}Why Choose Us | Ahsania Mission Cancer & General Hospital{% endblock title %}
+{% block page_name %}Why Choose Us{% endblock page_name %}
+{% block page_link %}<a href="{% url 'homepage:governing-body' %}">Why Choose Us</a>{% endblock page_link %}
+{% load static %}
+{% block content %}
+
+          <section class="section-padding bg-light-white service-page">
+            <div class="container">
+                <div class="row">
+
+                   <div class="col-lg-12">
+                        <div class="col-12">
+                            <div class="service-detail-sec bg-custom-white bx-wrapper">
+                                <div class="services-detail-slider mb-xl-30">
+                                    <div class="service-image">
+                                        <img src="{% static 'assets/images/Banner_2_1920x810.jpg' %}" class="image-fit" alt="department_image">
+                                        <div class="overlay overlay-bg-black"></div>
+                                        <div class="service-text-wrapper transform-center">
+                                            <h3 class="text-custom-white">{{ department.department_name }}</h3>
+
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="service-meta mb-xl-30">
+                                    <p align="justify" class="text-light-white">Building on the ideas of the founder Sufi Saint Hazrat Khan Bahadur Ahsanullah (Rahmatullah Alaihee), Dhaka Ahsania Mission embarked on establishing a modern cancer hospital where world-class treatment will be available. Ahsania Mission Cancer and General Hospital is one of the major projects to fight cancer in Bangladesh.
+
+
+Dhaka Ahsania Mission as part of the total project took the initiative in 2001 to open a Cancer detection & Treatment Center at Mirpur, Dhaka. In course of its progress it is now a 42 bed Cancer Hospital with required operation facilities, Chemotherapy, X-Ray and Imaging facilities. A team of experienced and dedicated cancer specialists and general physicians are working there to provide health service at a reasonably low cost. Here free services are offered to poor and ultra – poor patients. Since 2001 the hospital has continued to provide health care services, especially to cancer patients.<br><br>
+
+Ultimately the dream materialized into reality and a plan was made to construct a 500 bed Cancer Hospital at a staggering cost of 4189.14 million taka (US$ 53.70 million). The fifteen story hospital designed by a US based architectural firm “Design Alliance of Bultimore”, got started its construction with foundation laid by the then Prime Minister of Bangladesh on 10th July 2004 on a 3 acre land at the bank of the river Turag in Plot No. 3, Embankment Driveway at Sector-10 of Uttara Model Town in the Capital. The location is about 5 km from Zia International Airport. The construction work of the hospital, having the design of a 15 storied building with 450,000 sft floor spaces, started in July 2005. In the meantime the super-structure of this fifteen-storey hospital building (including 2 basements) has already been completed. However, due to non-availability of adequate fund, the hospital could not be completed in a single phase and as such the hospital is now being made functional in three phases.
+
+In the first phase, Basement 2, Level 1, Radiotherapy Vault and procurement of some of the medical equipment & furniture have been completed and the hospital has started functioning in a limited scale from April 2014, with Out Patient Department (OPD), In-patient beds, Operation Theaters, Radiation Therapy Unit, Day Care Centre and Diagnostic Facilities. The Hon’ble Prime Minister of Bangladesh has formally inaugurated the hospital on 9th April, 2014. At present more than 100 patients are receiving treatment everydays in various departments of the hospital.<br><br>
+
+The second phase covering Level 2 to Level 8 having 218 inpatient beds, 7 OTs, ICU, CCU and all other medical facilities will be completed by December 2016. Subject to availability of the required funds, rest of the facilities of this 500-bed hospital is expected to be completed by December 2017. At that time, based on beneficial utilization, Ahsania Mission Cancer & General Hospital is projected to provide over 160,000 days of inpatients care and cater to over 180,000 outpatients annually saving approximately US$ 13 million annually. 30% services of the hospital will be available free for the poor patients.
+
+Besides its contribution in education and rural development, DAM is determined to extend its hand in fighting against cancer in Bangladesh. In this poor community DAM cannot avoid the call for support in health sector.<br><br>
+
+DAM is raising funds from general public as well as from the corporate sector. There are special provisions for potential donors to sponsor various components of the hospital. One can donate to have in his/her own name or in the name of his/her near and dear ones.
+
+Keeping in line with Dhaka Ahsania Mission’s dedication to Divine and Humanitarian services Ahsania Mission Cancer and General Hospital will be a big leap forward to provide service to humanity by redressing the suffering of the ailing patients, especially cancer patients.<br>
+
+International Hospital Group (IHG), a UK based consulting firm with vast experience in medical equipment consultancy was entrusted with the job to furnish the equipment schedule i.e., floor & room wise equipments & furniture plan of AMCGH to cater to the need and suitability of the patients & users and they have completed their jobs.<br>
+
+Considering the huge cost of modern quality treatment for cancer and our commitment to provide poor and needy patients with 30% treatment facilities free of cost, deep thought has been given to make Ahsania Mission Cancer and General Hospital a viable and cost-effective project with the motto of ‘No-Profit-No-Loss’. Due consideration has also been given to the point that some cancer patients will come with other diseases which will need to be treated at the same hospital for practical reason. Also considering the reality to keep specialist doctors including ambitious and career conscious young doctors there is possibly no other alternative other than opting for building a Medical College in future. In consideration of this vital factors, provision for general treatment facilities have been kept at AMCGH. Moreover, there is a plan to establish a Nursing Institute in future.</p>
+
+                                </div>
+                            </div>
+
+
+                    </div>
+                </div>
+                </div>
+                </div>
+        </section>
+
+{% endblock %}
+
